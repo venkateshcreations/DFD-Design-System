@@ -1,0 +1,2180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design System — Deepfake Defense</title>
+  <meta name="description"
+    content="Venkatesh Ammireddy is a UX Creative Director and AI-first Product UX Architect with 13+ years of experience designing enterprise platforms, AI systems, agentic UX workflows, and intelligent digital products." />
+  <meta name="keywords"
+    content="Venkatesh Ammireddy, UX Designer, UX Creative Director, AI UX Designer, Product UX Architect, Agentic AI UX, Enterprise UX, UI UX Portfolio, Frontend Designer, AI Product Design, UX India, UX Consultant, Human-AI Interaction, Agentic UI, UX Architecture, Enterprise Platform Design, Design Systems Leader, Cognitive UX, Conversational AI UX, SaaS UX Design, UX Strategy Consultant, Product Design Director, Figma Design System, Venkatesh Creations Portfolio, Senior UX Designer India, AI UI Design, UX Architect Venkatesh, Ammireddy UX Lead Architect, Venkatesh Ammireddy UX Creative Director, Creative UX Ammireddy, Ammireddy Venkatesh UX, Venkatesh Ammireddy Designer, Venkatesh Ammireddy UX Contractor, Independent UX Director, Independent Design Director, UX Venkatesh, UX Ammireddy, UX Director, AI-UX Ammireddy, UX Consultant Hyderabad, AI UX Architect India, Venkatesh Creations UX" />
+  <meta name="author" content="Venkatesh Ammireddy" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="English" />
+  <meta name="revisit-after" content="7 days" />
+  <meta name="linkedin:owner" content="venkateshammireddy" />
+  <link rel="me" href="https://www.linkedin.com/in/venkateshammireddy/" />
+  <link rel="canonical" href="https://venkateshcreations.github.io/portfolio/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2 L4 8 L4 16 C4 24 8 28 16 30 C24 28 28 24 28 16 L28 8 Z' fill='none' stroke='%2310b981' stroke-width='2.5' stroke-linejoin='round'/%3E%3Cpath d='M12 16 L15 19 L20 13' fill='none' stroke='%2310b981' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <style>
+    /* ===== Design-system-specific overrides & inline docs ===== */
+    .ds-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(5, 6, 13, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .ds-nav-inner {
+      display: flex; align-items: center; gap: 24px;
+      height: 56px; overflow-x: auto;
+      scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+      padding: 0 24px;
+    }
+    .ds-nav-inner a {
+      flex-shrink: 0;
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      color: var(--text-mute);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      padding: 4px 12px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .ds-nav-inner a:hover { color: var(--text); background: var(--surface); }
+    .ds-nav-inner a.active { color: var(--cyan); background: rgba(76, 210, 255, 0.08); }
+    .ds-section { padding: 60px 0; border-bottom: 1px solid var(--border); }
+    .ds-section:last-of-type { border-bottom: 0; }
+    .ds-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 6px;
+    }
+    .ds-h1 {
+      font-size: 1.8rem; font-weight: 800;
+      margin: 0 0 8px;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .ds-h2 {
+      font-size: 1.3rem; font-weight: 700;
+      margin: 0 0 12px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .ds-h2 code {
+      font-size: 0.65rem;
+      color: var(--text-mute);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+    .ds-desc { color: var(--text-dim); font-size: 0.92rem; max-width: 720px; margin: 0 0 28px; }
+    .ds-desc strong { color: var(--text); }
+    .ds-gallery {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      align-items: flex-start;
+    }
+    .ds-swatch {
+      width: 80px;
+      text-align: center;
+    }
+    .ds-swatch .swatch {
+      width: 100%; aspect-ratio: 1;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      margin-bottom: 6px;
+    }
+    .ds-swatch .name {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      word-break: break-all;
+    }
+    .ds-swatch .value {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--text-faint);
+    }
+    .ds-table {
+      width: 100%; border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .ds-table th, .ds-table td {
+      text-align: left; padding: 10px 16px;
+      border-bottom: 1px solid rgba(140, 180, 255, 0.08);
+      color: var(--text-dim);
+      vertical-align: top;
+    }
+    .ds-table th {
+      color: var(--text-mute);
+      font-weight: 600;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(76, 210, 255, 0.03);
+    }
+    .ds-table td:first-child { color: var(--cyan-soft); font-family: var(--font-mono); font-size: 0.82rem; }
+    .ds-table tr:hover td { background: rgba(76, 210, 255, 0.02); }
+    .ds-table .token { font-family: var(--font-mono); color: var(--violet-soft); font-size: 0.78rem; }
+    .ds-table .val  { font-family: var(--font-mono); color: var(--text-dim); font-size: 0.78rem; }
+
+    .demo-box {
+      display: flex; flex-direction: column; gap: 12px;
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 20px;
+    }
+    .demo-box .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .demo-box .row.v-center { align-items: center; }
+    .demo-box .tag { margin: 0; }
+    .demo-box .eyebrow { margin-bottom: 0; }
+
+    .do-dont {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .do-dont .do, .do-dont .dont {
+      padding: 16px 18px;
+      border-radius: var(--radius);
+      font-size: 0.88rem;
+    }
+    .do-dont .do {
+      background: rgba(52, 211, 153, 0.06);
+      border: 1px solid rgba(52, 211, 153, 0.2);
+    }
+    .do-dont .dont {
+      background: rgba(248, 113, 113, 0.06);
+      border: 1px solid rgba(248, 113, 113, 0.2);
+    }
+    .do-dont .do::before { content: "DO: "; color: var(--green); font-weight: 700; }
+    .do-dont .dont::before { content: "DON'T: "; color: var(--red); font-weight: 700; }
+
+    .spec-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+    .spec-card h4 { color: var(--text); font-size: 1rem; margin: 0 0 6px; }
+    .spec-card p { font-size: 0.85rem; margin: 0 0 14px; color: var(--text-dim); }
+    .spec-card .attrs { display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; font-size: 0.82rem; }
+    .spec-card .attrs .k { font-family: var(--font-mono); color: var(--cyan-soft); }
+    .spec-card .attrs .v { color: var(--text-dim); }
+
+    .token-group { margin-bottom: 32px; }
+    .token-group h3 { font-size: 1rem; color: var(--text); margin: 0 0 8px; }
+    .token-group p { font-size: 0.85rem; color: var(--text-dim); margin: 0 0 14px; }
+
+    .usage-note {
+      padding: 14px 18px;
+      background: rgba(76, 210, 255, 0.05);
+      border-left: 3px solid var(--cyan);
+      border-radius: 0 8px 8px 0;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      margin: 14px 0;
+    }
+    .usage-note code {
+      font-size: 0.78rem;
+    }
+    .usage-note strong { color: var(--text); }
+
+    .component-preview {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .component-preview .preview-head {
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.02);
+      border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .component-preview .preview-head span {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-mute);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .component-preview .preview-body {
+      padding: 28px;
+    }
+
+    .responsive-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+    @media (max-width: 760px) {
+      .do-dont, .responsive-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="scroll-progress"></div>
+
+<!-- ===== TOP NAV (site) — minimal ===== -->
+<nav class="nav" style="border-bottom:1px solid var(--border);">
+  <div class="container nav-inner" style="justify-content:space-between;">
+    <a href="index.html" class="brand" style="text-decoration:none;">
+      <img src="assets/logo.png" alt="Deepfake Defense" class="brand-logo" />
+      <span class="brand-text">Deepfake Defense<small>DESIGN SYSTEM</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" style="display:none;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== IN-PAGE NAV ===== -->
+<nav class="ds-nav">
+  <div class="ds-nav-inner" style="max-width:var(--maxw); margin:0 auto;">
+    <a href="#tokens">Design Tokens</a>
+    <a href="#typography">Typography</a>
+    <a href="#spacing">Spacing &amp; Layout</a>
+    <a href="#color">Color</a>
+    <a href="#components">Components</a>
+    <a href="#state-matrix">State Matrix</a>
+    <a href="#patterns">Patterns</a>
+    <a href="#composition">Compositions</a>
+    <a href="#motion">Motion</a>
+    <a href="#responsive">Responsive</a>
+    <a href="#usage">Usage Guide</a>
+    <a href="#zindex">Z-Index</a>
+    <a href="#js-contracts">JS Contracts</a>
+    <a href="#accessibility">A11y</a>
+    <a href="#boilerplate">Boilerplate</a>
+    <a href="#deploy">Deploy</a>
+<a href="#browsers">Browser Support</a>
+    <a href="#git-conventions">Git Diffs</a>
+  </div>
+</nav>
+
+<main style="padding: 40px 0;">
+
+<div class="container">
+
+  <!-- ===== HERO ===== -->
+  <div style="margin-bottom: 40px;">
+    <div class="ds-label">Deepfake Defense · Reference v1.0</div>
+    <h1 class="ds-h1" style="font-size:2.4rem;">Design System</h1>
+    <p class="ds-desc" style="font-size:1rem;">
+      A comprehensive reference for engineers, designers, and system integrators building on top of the
+      Deepfake Defense program. This document covers every design token, component specification,
+      layout pattern, and usage convention in the system. Use it as the source of truth for
+      extending the site, building the <strong>Interactive Dashboard</strong>, or integrating
+      detection signals into your existing security tooling.
+    </p>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- 1. DESIGN TOKENS -->
+  <!-- ============================================================== -->
+  <section id="tokens" class="ds-section">
+
+    <div class="ds-label">Section 01</div>
+    <h2 class="ds-h2">Design Tokens <code>variables</code></h2>
+    <p class="ds-desc">
+      All design decisions are encoded as CSS custom properties on <code>:root</code>.
+      This is the single source of truth. Never hardcode values. Reference these tokens
+      in production code and in any downstream consumer (dashboard, plugin, SDK).
+    </p>
+
+    <div class="do-dont" style="margin-bottom: 28px;">
+      <div class="do">Reference tokens via <code>var(--token-name)</code> in all CSS. Keeps theming consistent and makes global changes a single-line edit.</div>
+      <div class="dont">Hardcode hex values like <code>#4cd2ff</code> in component CSS. Use the token. Multiplied tokens break instantly.</div>
+    </div>
+
+    <div class="usage-note">
+      <strong>Engineering rule:</strong> If you find yourself typing a hex, rgb, or raw pixel value in CSS, stop. The value does not exist in the design system. Add a new token or use an existing one. This applies to <strong>all</strong> team members — frontend, dashboard, email templates, or embedded widgets.
+    </div>
+
+    <div class="responsive-grid">
+      <div class="token-group">
+        <h3>Surfaces</h3>
+        <table class="ds-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td class="token">--bg-0</td><td class="val">#05060d</td><td>Page background, darkest surface</td></tr>
+            <tr><td class="token">--bg-1</td><td class="val">#0a0d1c</td><td>Secondary background, card backdrop</td></tr>
+            <tr><td class="token">--bg-2</td><td class="val">#11163a</td><td>Elevated surface, active states</td></tr>
+            <tr><td class="token">--surface</td><td class="val">rgba(255,255,255,0.035)</td><td>Subtle card/container surface</td></tr>
+            <tr><td class="token">--surface-2</td><td class="val">rgba(255,255,255,0.06)</td><td>Hover state surface</td></tr>
+            <tr><td class="token">--surface-3</td><td class="val">rgba(255,255,255,0.09)</td><td>Active/selected surface</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="token-group">
+        <h3>Borders</h3>
+        <table class="ds-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td class="token">--border</td><td class="val">rgba(140,180,255,0.14)</td><td>Default borders, dividers</td></tr>
+            <tr><td class="token">--border-strong</td><td class="val">rgba(140,180,255,0.32)</td><td>Hover borders, header underlines</td></tr>
+            <tr><td class="token">--border-glow</td><td class="val">rgba(76,210,255,0.45)</td><td>Focused/glowing border states</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="token-group">
+        <h3>Text</h3>
+        <table class="ds-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td class="token">--text</td><td class="val">#eaf0ff</td><td>Primary body &amp; heading text</td></tr>
+            <tr><td class="token">--text-dim</td><td class="val">#95a3c8</td><td>Secondary text, descriptions</td></tr>
+            <tr><td class="token">--text-mute</td><td class="val">#6a7596</td><td>Metadata, footnotes, captions</td></tr>
+            <tr><td class="token">--text-faint</td><td class="val">#4a547a</td><td>Placeholder text, disabled</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="token-group">
+        <h3>Shadows</h3>
+        <table class="ds-table">
+          <thead><tr><th>Token</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td class="token">--shadow-sm</td><td class="val">Cards, small surfaces</td></tr>
+            <tr><td class="token">--shadow-md</td><td class="val">Hovered cards, modals</td></tr>
+            <tr><td class="token">--shadow-lg</td><td class="val">Hero, banners, overlays</td></tr>
+            <tr><td class="token">--shadow-glow-cyan</td><td class="val">Cyan accent glow</td></tr>
+            <tr><td class="token">--shadow-glow-pink</td><td class="val">Magenta accent glow</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="token-group" style="grid-column: 1 / -1;">
+        <h3>Radii &amp; Layout</h3>
+        <table class="ds-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td class="token">--r-sm</td><td class="val">8px</td><td>Small elements, badges, tags</td></tr>
+            <tr><td class="token">--radius</td><td class="val">14px</td><td>Default card &amp; container radius</td></tr>
+            <tr><td class="token">--radius-lg</td><td class="val">22px</td><td>Hero sections, large banners</td></tr>
+            <tr><td class="token">--radius-xl</td><td class="val">28px</td><td>Outer containers, modals</td></tr>
+            <tr><td class="token">--maxw</td><td class="val">1400px</td><td>Maximum container width</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- 2. TYPOGRAPHY -->
+  <!-- ============================================================== -->
+  <section id="typography" class="ds-section">
+
+    <div class="ds-label">Section 02</div>
+    <h2 class="ds-h2">Typography <code>fonts</code></h2>
+    <p class="ds-desc">
+      Two font families, strictly scoped. <strong>Inter</strong> drives all UI and body copy.
+      <strong>JetBrains Mono</strong> is reserved for data, code, technical labels, and forensic
+      readouts. Never use a system font fallback for body text — the whole aesthetic depends on
+      these choices.
+    </p>
+
+    <div class="responsive-grid">
+      <div class="spec-card">
+        <h4>Inter (Display &amp; Body)</h4>
+        <p>Weights 400, 500, 600, 700, 800. The entire UI surface is Inter. Use 800 for h1,
+        700 for h2-h4, 600 for subheads, 500 for body, 400 for captions.</p>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <span style="font-weight:800; font-size:1.6rem;">The quick brown fox (800)</span>
+          <span style="font-weight:700; font-size:1.3rem;">The quick brown fox (700)</span>
+          <span style="font-weight:600; font-size:1rem;">The quick brown fox (600)</span>
+          <span style="font-weight:500; font-size:0.95rem;">The quick brown fox (500)</span>
+          <span style="font-weight:400; font-size:0.88rem; color:var(--text-dim);">The quick brown fox (400)</span>
+        </div>
+        <div class="usage-note" style="margin-top:14px;">
+          <strong>Token:</strong> <code>--font-sans</code> for UI, <code>--font-display</code> for headings.
+          Always use <code>letter-spacing: -0.015em</code> on headings and <code>-0.025em</code> on h1.
+        </div>
+      </div>
+
+      <div class="spec-card">
+        <h4>JetBrains Mono (Code &amp; Data)</h4>
+        <p>Weights 400, 500, 700. Reserved for forensic readouts, signal tables, detection scores, timeline dates, and technical labels. Never use for prose.</p>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <span style="font-family:var(--font-mono); font-weight:700; font-size:0.95rem;">lip_sync_delta: 42ms (700)</span>
+          <span style="font-family:var(--font-mono); font-weight:500; font-size:0.85rem;">confidence: 0.87 · FACE-014 (500)</span>
+          <span style="font-family:var(--font-mono); font-weight:400; font-size:0.78rem; color:var(--text-dim);">Target: &gt;90% recognition rate (400)</span>
+        </div>
+        <div class="usage-note" style="margin-top:14px;">
+          <strong>Token:</strong> <code>--font-mono</code>. Also applies to the <code>code</code> and <code>kbd</code> elements globally (styled in base CSS).
+        </div>
+      </div>
+    </div>
+
+    <!-- Heading scale -->
+    <div class="token-group" style="margin-top:28px;">
+      <h3>Heading Scale</h3>
+      <table class="ds-table">
+        <thead><tr><th>Level</th><th>Size</th><th>Weight</th><th>Letter-spacing</th><th>Typical context</th></tr></thead>
+        <tbody>
+          <tr><td>h1</td><td class="val">clamp(2.4rem, 5vw, 3.8rem)</td><td>800</td><td>-0.025em</td><td>Page hero titles</td></tr>
+          <tr><td>h2</td><td class="val">clamp(1.7rem, 2.8vw, 2.4rem)</td><td>700</td><td>-0.015em</td><td>Section headers</td></tr>
+          <tr><td>h3</td><td class="val">1.2rem</td><td>600</td><td>-0.015em</td><td>Card titles</td></tr>
+          <tr><td>h4</td><td class="val">0.95rem–1.08rem</td><td>600</td><td>normal</td><td>Subsection heads, timeline items</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="token-group">
+      <h3>Eyebrow Label</h3>
+      <table class="ds-table">
+        <thead><tr><th>Token</th><th>Size</th><th>Family</th><th>Letter-spacing</th><th>Usage</th></tr></thead>
+        <tbody>
+          <tr><td>.eyebrow</td><td class="val">0.74rem</td><td>JetBrains Mono</td><td>0.22em</td><td>Section badges, module labels — always uppercase with a glowing dot prefix via <code>::before</code></td></tr>
+        </tbody>
+      </table>
+      <div class="demo-box" style="margin-top:12px;">
+        <span class="eyebrow">MODULE 02 · DETECTION STACK</span>
+      </div>
+      <div class="usage-note">
+        The <code>.eyebrow</code element always includes a pulsing <code>::before</code> pseudo-element (6px cyan dot). Use it at the top of every major section. It is the visual anchor for the module-numbering convention across all pages.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- 3. SPACING & LAYOUT -->
+  <!-- ============================================================== -->
+  <section id="spacing" class="ds-section">
+
+    <div class="ds-label">Section 03</div>
+    <h2 class="ds-h2">Spacing &amp; Layout <code>grids · containers · gutters</code></h2>
+    <p class="ds-desc">
+      The layout system is a single container width with consistent vertical rhythm.
+      Never add custom padding or margins in ad-hoc fashion — use the system below.
+    </p>
+
+    <div class="responsive-grid">
+      <div class="token-group">
+        <h3>Container &amp; Sections</h3>
+        <table class="ds-table">
+          <thead><tr><th>Element</th><th>Value</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>.container</td><td class="val">max-width: 1400px; padding: 0 24px;</td><td>Single source of truth for page width</td></tr>
+            <tr><td>.section</td><td class="val">padding: 100px 0;</td><td>Standard vertical section spacing</td></tr>
+            <tr><td>.section--tight</td><td class="val">padding: 64px 0;</td><td>Compact variant</td></tr>
+          </tbody>
+        </table>
+        <div class="usage-note" style="margin-top:10px;">
+          <strong>Engineering rule:</strong> Every major page section should be a <code>&lt;section class="section"&gt;</code> wrapping a <code>.container</code>. This guarantees consistent vertical rhythm. Never use margin-top on a section to create space — rely on the <code>.section</code> padding.
+        </div>
+      </div>
+
+      <div class="token-group">
+        <h3>Grid System</h3>
+        <table class="ds-table">
+          <thead><tr><th>Class</th><th>Columns</th><th>Gap</th><th>Breakpoints</th></tr></thead>
+          <tbody>
+            <tr><td>.grid-2</td><td class="val">2</td><td>22px</td><td>→ 1 col at 640px</td></tr>
+            <tr><td>.grid-3</td><td class="val">3</td><td>22px</td><td>→ 2 col at 980px → 1 col at 640px</td></tr>
+            <tr><td>.grid-4</td><td class="val">4</td><td>22px</td><td>→ 2 col at 980px → 1 col at 640px</td></tr>
+          </tbody>
+        </table>
+        <div class="usage-note" style="margin-top:10px;">
+          <strong>Usage:</strong> <code>class="grid grid-3"</code>. Always use this class pair. The grid is applied to a container; children become grid items automatically. Do not wrap grid items in extra divs unless you need a <code>grid-column: span N</code> override.
+        </div>
+      </div>
+    </div>
+
+    <div class="token-group" style="margin-top:20px;">
+      <h3>Split Layout</h3>
+      <table class="ds-table">
+        <thead><tr><th>Class</th><th>Columns</th><th>Gap</th><th>Breakpoint</th></tr></thead>
+        <tbody>
+          <tr><td>.split</td><td class="val">1fr 1fr</td><td>56px</td><td>→ 1 col at 880px</td></tr>
+        </tbody>
+      </table>
+      <div class="usage-note">
+        Use <code>.split</code> for paired content blocks (e.g., text explanation + visual example, timeline + description). It is intentionally different from <code>.grid-2</code> because the gap is wider and the breakpoint is different. It is not a general-purpose grid.
+      </div>
+    </div>
+
+    <div class="token-group">
+      <h3>Special Layouts</h3>
+      <table class="ds-table">
+        <thead><tr><th>Pattern</th><th>Columns</th><th>Used for</th></tr></thead>
+        <tbody>
+          <tr><td>.stat-strip-grid</td><td class="val">4 → 2 at 720px</td><td>Statistical metric row below hero</td></tr>
+          <tr><td>.pillars</td><td class="val">4 → 2 at 980px → 1 at 560px</td><td>Four-pillar overview section</td></tr>
+          <tr><td>.framework</td><td class="val">5 → 2 at 980px → 1 at 560px</td><td>Five-step implementation framework</td></tr>
+          <tr><td>.footer-grid</td><td class="val">1.5fr 1fr 1fr 1fr → 2 col at 760px → 1 at 480px</td><td>Footer column structure</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- 4. COLOR -->
+  <!-- ============================================================== -->
+  <section id="color" class="ds-section">
+
+    <div class="ds-label">Section 04</div>
+    <h2 class="ds-h2">Color <code>palette + roles</code></h2>
+    <p class="ds-desc">
+      Three accent colors — cyan, violet, magenta — on a midnight indigo field.
+      These are not swatches to choose from; they are <strong>roles</strong> with specific
+      semantic meaning. Use them deliberately.
+    </p>
+
+    <div class="usage-note">
+      <strong>Golden rule of the palette:</strong> cyan is primary action, violet is
+      NIST/standards/authority, magenta is alert/synthetic/warning. Never use cyan for a warning
+      badge or magenta for a primary button. The role is locked.
+    </div>
+
+    <div class="token-group">
+      <h3>Semantic role map</h3>
+      <table class="ds-table">
+        <thead><tr><th>Accent</th><th>Hard token</th><th>Soft token</th><th>Semantic role</th><th>Never use for</th></tr></thead>
+        <tbody>
+          <tr><td><span style="display:inline-block;width:12px;height:12px;border-radius:4px;background:#4cd2ff;vertical-align:middle;margin-right:6px;"></span>Cyan</td><td class="val">--cyan: #4cd2ff</td><td class="val">--cyan-soft: #8fe6ff</td><td>Primary UI (buttons, links, active), data highlights, "go" signals</td><td>Warning, error, synthetic-score labels</td></tr>
+          <tr><td><span style="display:inline-block;width:12px;height:12px;border-radius:4px;background:#8b5cf6;vertical-align:middle;margin-right:6px;"></span>Violet</td><td class="val">--violet: #8b5cf6</td><td class="val">--violet-soft: #b794f6</td><td>NIST controls, standards, compliance badges, "authority" context</td><td>Primary CTAs, real-time scan data</td></tr>
+          <tr><td><span style="display:inline-block;width:12px;height:12px;border-radius:4px;background:#f472b6;vertical-align:middle;margin-right:6px;"></span>Magenta</td><td class="val">--magenta: #f472b6</td><td class="val">--magenta-soft: #f9a8d4</td><td>Synthetic alerts, warning verdicts, "suspect" labels, attack indicators</td><td>Positive metrics, verified status</td></tr>
+          <tr><td><span style="display:inline-block;width:12px;height:12px;border-radius:4px;background:#34d399;vertical-align:middle;margin-right:6px;"></span>Green</td><td class="val">--green: #34d399</td><td>—</td><td>Success, pass, verified, "all clear"</td><td>Neutral/unverified states</td></tr>
+          <tr><td><span style="display:inline-block;width:12px;height:12px;border-radius:4px;background:#f87171;vertical-align:middle;margin-right:6px;"></span>Red</td><td class="val">--red: #f87171</td><td>—</td><td>Error, block, high-risk, false</td><td>Informational labels</td></tr>
+          <tr><td><span style="display:inline-block;width:12px;height:12px;border-radius:4px;background:#fbbf24;vertical-align:middle;margin-right:6px;"></span>Amber</td><td class="val">--amber: #fbbf24</td><td class="val">--amber-soft: #fde68a</td><td>Warning, caution, challenge, medium-risk</td><td>Critical alerts</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="token-group">
+      <h3>Gradient System</h3>
+      <table class="ds-table">
+        <thead><tr><th>Token</th><th>Stops</th><th>Usage</th></tr></thead>
+        <tbody>
+          <tr><td class="token">--grad</td><td class="val">135deg · cyan → violet → magenta</td><td>Primary gradient for CTAs, stat numbers, progress bars, decorative dividers</td></tr>
+          <tr><td class="token">--grad-cyan</td><td class="val">cyan → blue</td><td>Detection/Layer 1 accent</td></tr>
+          <tr><td class="token">--grad-violet</td><td class="val">violet → purple</td><td>NIST controls accent</td></tr>
+          <tr><td class="token">--grad-pink</td><td class="val">magenta → pink</td><td>Warning/synthetic accent</td></tr>
+          <tr><td class="token">--grad-soft</td><td class="val">12% opacity cyan/violet</td><td>Subtle surface overlay</td></tr>
+          <tr><td class="token">--grad-glow</td><td class="val">radial · violet center → transparent</td><td>Hero glow, ambient effect</td></tr>
+        </tbody>
+      </table>
+      <div class="usage-note" style="margin-top:10px;">
+        <strong>Gradient on text:</strong> Use the <code>.grad</code> class or <code>background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;</code> pattern. This is applied to headline spans and stat numbers only — never on body text. The gradient on text conveys emphasis, not decoration.
+      </div>
+    </div>
+
+    <div class="token-group">
+      <h3>Complete Swatch Gallery</h3>
+      <div class="ds-gallery">
+        <div class="ds-swatch"><div class="swatch" style="background:#05060d;border-color:rgba(255,255,255,0.15);"></div><div class="name">--bg-0</div><div class="val">#05060d</div></div>
+        <div class="ds-swatch"><div class="swatch" style="background:#0a0d1c;"></div><div class="name">--bg-1</div><div class="val">#0a0d1c</div></div>
+        <div class="ds-swatch"><div class="swatch" style="background:#11163a;"></div><div class="name">--bg-2</div><div class="val">#11163a</div></div>
+        <div class="ds-swatch"><div class="swatch" style="background:#eaf0ff;"></div><div class="name">--text</div><div class="val">#eaf0ff</div></div>
+        <div class="ds-swatch"><div class="swatch" style="background:#95a3c8;"></div><div class="name">--text-dim</div><div class="val">#95a3c8</div></div>
+        <div class="ds-swatch"><div class="swatch" style="background:#6a7596;"></div><div class="name">--text-mute</div><div class="val">#6a7596</div></div>
+        <div class="ds-swatch"><div class="swatch" style="background:#4cd2ff;"></div><div class="name">--cyan</div><div class="val">#4cd2ff</div></div>
+        <div class="ds-swatch"><div class="swatch" style="background:#8b5cf6;"></div><div class="name">--violet</div><div class="val">#8b5cf6</div></div>
+        <div class="ds-swatch"><div class="swatch" style="background:#f472b6;"></div><div class="name">--magenta</div><div class="val">#f472b6</div></div>
+        <div class="ds-swatch"><div class="swatch" style="background:#34d399;"></div><div class="name">--green</div><div class="val">#34d399</div></div>
+        <div class="ds-swatch"><div class="swatch" style="background:#f87171;"></div><div class="name">--red</div><div class="val">#f87171</div></div>
+        <div class="ds-swatch"><div class="swatch" style="background:#fbbf24;"></div><div class="name">--amber</div><div class="val">#fbbf24</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- 5. COMPONENTS -->
+  <!-- ============================================================== -->
+  <section id="components" class="ds-section">
+
+    <div class="ds-label">Section 05</div>
+    <h2 class="ds-h2">Components <code>specs + states</code></h2>
+    <p class="ds-desc">
+      Every reusable UI component in the system, documented with its HTML structure, CSS classes,
+      state variants, and spacing rules. Use these as the canonical build reference.
+    </p>
+
+    <!-- Button -->
+    <div class="component-preview">
+      <div class="preview-head"><span>Button System</span><span>.btn · .btn--primary · .btn--ghost</span></div>
+      <div class="preview-body">
+        <div class="demo-box">
+          <div class="row">
+            <a href="#" class="btn btn--primary">Primary action <span class="arrow">→</span></a>
+            <a href="#" class="btn btn--ghost">Secondary action</a>
+          </div>
+        </div>
+        <table class="ds-table">
+          <thead><tr><th>Class</th><th>Variant</th><th>Background</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td>.btn</td><td class="val">Base</td><td>transparent, border: 1px</td><td>Never use bare — always pair with a modifier</td></tr>
+            <tr><td>.btn--primary</td><td class="val">Primary</td><td><code>var(--grad)</code> gradient</td><td>Primary CTAs, "next page", "build the program", "launch"</td></tr>
+            <tr><td>.btn--ghost</td><td class="val">Ghost</td><td><code>var(--surface)</code> with backdrop-blur</td><td>Secondary CTAs, "back", "see the threat"</td></tr>
+          </tbody>
+        </table>
+        <div class="usage-note" style="margin-top:10px;">
+          <strong>Arrow pattern:</strong> The <code>.arrow</code> span inside a button uses <code>display: inline-block; transition: transform 0.2s ease;</code> and slides right <code>4px</code> on parent hover via <code>.btn:hover .arrow</code>. Apply this to every CTA button. Do not use emoji arrows — use the <code>&lt;span class="arrow"&gt;→&lt;/span&gt;</code> pattern.
+        </div>
+      </div>
+    </div>
+
+    <!-- Card -->
+    <div class="component-preview">
+      <div class="preview-head"><span>Card</span><span>.card</span></div>
+      <div class="preview-body">
+        <div style="max-width:380px;">
+          <div class="card">
+            <div class="card-icon">🎙</div>
+            <h3>Audio deepfakes</h3>
+            <p>Voice clones built from 3 to 30 seconds of clean sample audio. Highest near-term business risk.</p>
+            <div class="tag-row"><span>VCF</span><span>real-time</span><span>vishing</span></div>
+          </div>
+        </div>
+        <table class="ds-table" style="margin-top:16px;">
+          <thead><tr><th>Element</th><th>Structure</th></tr></thead>
+          <tbody>
+            <tr><td>.card</td><td class="val">Outer wrapper. Gradient background + 1px border + <code>var(--radius)</code>. Has <code>::before</code> hover overlay and <code>transform: translateY(-3px)</code> on hover.</td></tr>
+            <tr><td>.card-icon</td><td class="val">46×46px box with gradient background + border. Rotates -6deg on card hover. Place inside card header.</td></tr>
+            <tr><td>h3 + p</td><td class="val">Standard card content. h3 gets <code>color: var(--text)</code>, p gets <code>color: var(--text-dim)</code>.</td></tr>
+            <tr><td>.tag-row</td><td class="val">Flex row of monospace tags. Optional. Used for classification tags.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Case Card -->
+    <div class="component-preview">
+      <div class="preview-head"><span>Case Card</span><span>.case-card</span></div>
+      <div class="preview-body">
+        <div style="max-width:360px;">
+          <article class="case-card">
+            <span class="tag tag--red">FINANCIAL</span>
+            <span class="victim">Global Manufacturer · 2024</span>
+            <h3>The "urgent" wire transfer</h3>
+            <p class="impact">Voice clone of the regional CFO on a phone call. Assistant wired $26M to three new vendor accounts.</p>
+          </article>
+        </div>
+        <table class="ds-table" style="margin-top:16px;">
+          <thead><tr><th>Element</th><th>Spec</th></tr></thead>
+          <tbody>
+            <tr><td>.case-card</td><td class="val">Relative-positioned card with absolute <code>.tag</code> in top-right corner. Same base styling as <code>.card</code>.</td></tr>
+            <tr><td>.tag--red|amber|cyan|violet</td><td class="val">Color-coded tag classes. Red for financial, amber for reputation, cyan for insider, violet for identity.</td></tr>
+            <tr><td>.victim</td><td class="val">Organization + year. Monospace, uppercase, muted.</td></tr>
+            <tr><td>.impact</td><td class="val">Paragraph body. Standard <code>--text-dim</code> color.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Pillar -->
+    <div class="component-preview">
+      <div class="preview-head"><span>Pillar</span><span>.pillar inside .pillars</span></div>
+      <div class="preview-body">
+        <div style="max-width:280px;">
+          <div class="pillar">
+            <div class="step">PILLAR 01</div>
+            <h3>Govern</h3>
+            <p>Policy, ownership, escalation paths, and a clear definition of what counts as a deepfake incident.</p>
+          </div>
+        </div>
+        <div class="usage-note" style="margin-top:14px;">
+          <strong>Must be inside <code>.pillars</code> grid container.</strong> Each pillar has a 3px gradient top bar via <code>::before</code>. The <code>.step</code> label is JetBrains Mono, uppercase, cyan. Hover lifts the card 4px and intensifies the top bar.
+        </div>
+      </div>
+    </div>
+
+    <!-- Maturity Row -->
+    <div class="component-preview">
+      <div class="preview-head"><span>Maturity Row</span><span>.maturity-row inside .maturity</span></div>
+      <div class="preview-body">
+        <div style="max-width:600px;">
+          <div class="maturity">
+            <div class="maturity-row">
+              <div class="lvl">L3</div>
+              <div class="lbl"><strong>Defined</strong><small>Owned program, layered detection, four written playbooks, quarterly drills, metrics tracked.</small></div>
+              <div class="pct">~55%</div>
+            </div>
+          </div>
+        </div>
+        <table class="ds-table" style="margin-top:12px;">
+          <thead><tr><th>Element</th><th>Spec</th></tr></thead>
+          <tbody>
+            <tr><td>.maturity</td><td class="val">Grid container with <code>14px</code> gap</td></tr>
+            <tr><td>.maturity-row</td><td class="val">3-column grid: <code>90px · 1fr · 110px</code>. Hover shifts right by 2px.</td></tr>
+            <tr><td>.lvl</td><td class="val">Monospace, cyan, centered. 40px box with 50% background opacity.</td></tr>
+            <tr><td>.pct</td><td class="val">Right-aligned percentage value. Monospace, cyan-soft.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- NIST Chip / Popover -->
+    <div class="component-preview">
+      <div class="preview-head"><span>NIST Chip + Popover</span><span>.nist-chip + .nist-popover (JS-driven)</span></div>
+      <div class="preview-body">
+        <p class="ds-desc" style="margin-bottom:12px;">
+          Click the chip below to see the popover behavior (popover opens below chip,
+          viewport-aware positioning, closes on Escape / scroll / click-outside).
+        </p>
+        <span class="nist-chip-row">
+          <button class="nist-chip"
+            data-nist-id="NIST SP 800-53 r5 · RA-3"
+            data-nist-title="Risk assessment"
+            data-nist-body="RA-3 requires periodic assessment of risk to organizational operations, assets, and individuals resulting from the operation of information systems."
+            data-nist-link="https://csrc.nist.gov/Projects/risk-management/sp800-53-controls/release-search?controls=RA-03"
+            data-nist-link-label="View RA-3 on NIST">RA-3</button>
+          <button class="nist-chip"
+            data-nist-id="NIST SP 800-53 r5 · SI-04"
+            data-nist-title="System monitoring"
+            data-nist-body="SI-04 (System Monitoring) requires monitoring of the information system to detect attacks, indicators of potential attacks, and unauthorized activity."
+            data-nist-link="https://csrc.nist.gov/Projects/risk-management/sp800-53-controls/release-search?controls=SI-04"
+            data-nist-link-label="View SI-04 on NIST">SI-04</button>
+        </span>
+        <table class="ds-table" style="margin-top:16px;">
+          <thead><tr><th>Attribute</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>data-nist-id</td><td class="val">string</td><td>Display ID shown in popover header (e.g., "NIST SP 800-53 r5 · RA-3")</td></tr>
+            <tr><td>data-nist-title</td><td class="val">string</td><td>Popover title (e.g., "Risk assessment")</td></tr>
+            <tr><td>data-nist-body</td><td class="val">string</td><td>Body text. Can include HTML entities.</td></tr>
+            <tr><td>data-nist-link</td><td class="val">URL</td><td>Optional. Link to NIST.gov or other reference.</td></tr>
+            <tr><td>data-nist-link-label</td><td class="val">string</td><td>Link label text. Defaults to "View on NIST.gov".</td></tr>
+          </tbody>
+        </table>
+        <div class="usage-note" style="margin-top:10px;">
+          <strong>Important:</strong> The popover is a single shared DOM element that repositions and re-renders on each click. It is created once in JS (<code>main.js:300</code>) and reused. Every <code>.nist-chip</code> gets <code>role="button"</code> and <code>tabindex="0"</code> automatically. Add new chips by including the <code>.nist-chip</code> class with the data attributes — no JS changes needed.
+        </div>
+      </div>
+    </div>
+
+    <!-- CVE Row -->
+    <div class="component-preview">
+      <div class="preview-head"><span>CVE Row</span><span>.cve-row</span></div>
+      <div class="preview-body">
+        <div style="max-width:700px;">
+          <article class="cve-row">
+            <div class="cve-id">
+              <a href="https://nvd.nist.gov/vuln/detail/CVE-2023-30861" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">CVE-2023-30861</a>
+              <small>CVSS 9.8 · CRITICAL</small>
+            </div>
+            <div class="cve-body">
+              <h4>Flask session-cookie forgery</h4>
+              <p>Session prediction and cookie forgery remain a top enabler for voice-cloned helpdesk account takeovers.</p>
+              <div class="cve-tags">
+                <a href="#">CWE-287 · Improper Authentication</a>
+                <a href="#">CWE-384 · Session Fixation</a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <table class="ds-table" style="margin-top:12px;">
+          <thead><tr><th>Element</th><th>Spec</th></tr></thead>
+          <tbody>
+            <tr><td>.cve-row</td><td class="val">2-column grid: <code>180px · 1fr</code>. Hover shifts right by 2px. Wraps to single column at 720px.</td></tr>
+            <tr><td>.cve-id</td><td class="val">Left column. Monospace, magenta, bold. Optional <code>small</code> for CVSS score.</td></tr>
+            <tr><td>.cve-body h4</td><td class="val">Vulnerability title. Standard heading weight.</td></tr>
+            <tr><td>.cve-tags</td><td class="val">Flex row of CWE/links. <code>a</code> elements are cyan; <code>span</code> is default dim.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Quiz -->
+    <div class="component-preview">
+      <div class="preview-head"><span>Training Quiz</span><span>[data-quiz] + JS (main.js:178)</span></div>
+      <div class="preview-body" style="max-width:700px;">
+        <div class="quiz" data-quiz='[
+          {"q":"Your CFO calls. Voice sounds right. Asks to wire $84K. What do you do?","options":["Wire it.","Pause, call back on known number.","Email to confirm.","Text the CFO."],"answer":1,"explain":"Callback on known-good number is the single highest-yield response."}]'>
+          <div class="quiz-progress"><span>DEEPFAKE DRILL</span><div class="bar"><div class="fill" style="width:20%;"></div></div><span class="counter">Q 1 / 1</span></div>
+          <div class="scenario">SCENARIO</div>
+          <h3 class="q-text" style="margin:0 0 22px;">Your CFO calls you directly. Voice sounds right. Asks to wire $84,000 to a new vendor.</h3>
+          <div class="options">
+            <button class="opt" type="button">Wire it. The CFO is on the call.</button>
+            <button class="opt correct" type="button" disabled>Pause, call back on known number.</button>
+          </div>
+          <div class="feedback show right" style="display:block;">Correct. Callback on known-good number is the single highest-yield response.</div>
+        </div>
+        <div class="usage-note" style="margin-top:12px;">
+          <strong>Data structure:</strong> <code>data-quiz</code> is a JSON array. Each question has <code>q</code> (string), <code>options</code> (string array), <code>answer</code> (index number), <code>explain</code> (string). The JS handles rendering, locking, scoring, and restart. To add questions, simply extend the JSON array.
+        </div>
+      </div>
+    </div>
+  <!-- Timeline -->
+    <div class="component-preview">
+      <div class="preview-head"><span>Timeline</span><span>.timeline + .timeline-item</span></div>
+      <div class="preview-body">
+        <div style="max-width:500px;">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="when">2019 · FIRST CORPORATE CASE</div>
+              <h4>UK energy firm CEO voice clone</h4>
+              <p>$243,000 wired to a Hungarian account. Publicly disclosed in 2019.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="when">2022 · VIDEO MATURES</div>
+              <h4>$25M via deepfake CFO on video call</h4>
+              <p>Attackers joined a Zoom call as a deepfaked CFO.</p>
+            </div>
+          </div>
+        </div>
+        <table class="ds-table" style="margin-top:12px;">
+          <thead><tr><th>Element</th><th>Spec</th></tr></thead>
+          <tbody>
+            <tr><td>.timeline</td><td class="val">Relative container with <code>padding-left: 32px</code>. <code>::before</code> creates a 2px gradient vertical line (cyan→violet→magenta) with glow.</td></tr>
+            <tr><td>.timeline-item</td><td class="val">Relative, <code>padding-bottom: 36px</code>. <code>::before</code> creates a 16px glowing dot on the line (<code>left: -28px; top: 6px</code>) with cyan border + shadow.</td></tr>
+            <tr><td>.when</td><td class="val">Monospace, uppercase, cyan. <code>font-size: 0.74rem; letter-spacing: 0.18em</code>.</td></tr>
+            <tr><td>.timeline-item h4</td><td class="val">White, margin 0 0 6px. <code>font-size: 1.08rem</code>.</td></tr>
+            <tr><td>.timeline-item p</td><td class="val">Standard <code>--text-dim</code>. <code>font-size: 0.95rem</code>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Signal Card -->
+    <div class="component-preview">
+      <div class="preview-head"><span>Signal Table Card</span><span>.signal-card + .signal-table</span></div>
+      <div class="preview-body">
+        <div style="max-width:500px;">
+          <div class="card signal-card">
+            <div class="signal-card-head">
+              <h3>Media &amp; audio signals</h3>
+              <p>Forensic, model-derived, hard to fake end-to-end.</p>
+            </div>
+            <table class="signal-table">
+              <thead><tr><th>Signal</th><th>Surface</th><th>Reliability</th></tr></thead>
+              <tbody>
+                <tr><td>lip_sync_delta</td><td>Video</td><td>High</td></tr>
+                <tr><td>spectral_artifact</td><td>Audio</td><td>High</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <table class="ds-table" style="margin-top:12px;">
+          <thead><tr><th>Element</th><th>Spec</th></tr></thead>
+          <tbody>
+            <tr><td>.signal-card</td><td class="val"><code>.card</code> with <code>padding: 0; overflow: hidden</code>. The card wrapper acts as the outer container.</td></tr>
+            <tr><td>.signal-card-head</td><td class="val">Header area with <code>padding: 22px 26px</code> + bottom border. Contains h3 + description p.</td></tr>
+            <tr><td>.signal-table</td><td class="val">Full-width table with collapse. Cells: <code>padding: 14px 26px</code>, font-size <code>0.9rem</code>. Headers get cyan tint background <code>rgba(76,210,255,0.04)</code>. First column (signal name) is monospace cyan. Rows highlight on hover.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Control Card (NIST) -->
+    <div class="component-preview">
+      <div class="preview-head"><span>NIST Control Card</span><span>.control-card</span></div>
+      <div class="preview-body">
+        <div style="max-width:380px;">
+          <div class="control-card">
+            <div class="cc-id">AC-02 · ACCOUNT MGMT</div>
+            <h3>Identity &amp; access lifecycle</h3>
+            <p>Tight account provisioning and step-up auth closes most impersonation vectors.</p>
+            <div class="cc-impl">Step-up MFA on any identity assertion that does not match enrolled device, location, and behavior baseline.</div>
+          </div>
+        </div>
+        <table class="ds-table" style="margin-top:12px;">
+          <thead><tr><th>Element</th><th>Spec</th></tr></thead>
+          <tbody>
+            <tr><td>.control-card</td><td class="val">Card with 3px violet <code>::before</code> top bar. Hover: translateY(-3px), intensifies violet border.</td></tr>
+            <tr><td>.cc-id</td><td class="val">Monospace, violet-soft, uppercase, <code>font-size: 0.65rem; letter-spacing: 0.18em</code>. Top dot via <code>::before</code>.</td></tr>
+            <tr><td>.cc-impl</td><td class="val">Implementation note. Monospace, <code>font-size: 0.78rem</code>, background <code>rgba(139,92,246,0.06)</code>, left border violet. Margin-top 12px.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Framework Step -->
+    <div class="component-preview">
+      <div class="preview-head"><span>Framework Step</span><span>.fw-step inside .framework</span></div>
+      <div class="preview-body">
+        <div style="max-width:220px;">
+          <div class="fw-step">
+            <div class="num">1</div>
+            <h4>Charter &amp; owner</h4>
+            <p>Single accountable leader, board-level sponsor, signed charter.</p>
+          </div>
+        </div>
+        <table class="ds-table" style="margin-top:12px;">
+          <thead><tr><th>Element</th><th>Spec</th></tr></thead>
+          <tbody>
+            <tr><td>.framework</td><td class="val">5-column grid. Has <code>::before</code> connecting line across the top (hidden at mobile). Breakpoints: 2-col at 980px, 1-col at 560px.</td></tr>
+            <tr><td>.fw-step</td><td class="val">Centered card with gradient background, <code>z-index: 1</code>. Hover: translateY(-4px).</td></tr>
+            <tr><td>.fw-step .num</td><td class="val">40px circle with gradient background + glow shadow. Monospace, dark text, centered margin.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Face Scanner Hero -->
+    <div class="component-preview">
+      <div class="preview-head"><span>Face Scanner (Homepage Hero)</span><span>.hero-visual · .face-frame · .face-meta · .verdict</span></div>
+      <div class="preview-body" style="max-width:340px; margin:0 auto;">
+        <div class="hero-visual" style="width:100%; aspect-ratio:1/1.08; background:linear-gradient(180deg, rgba(17,22,58,0.4), rgba(10,13,28,0.95)); border:1px solid var(--border); border-radius:var(--radius-xl); padding:18px; position:relative; overflow:hidden;">
+          <div class="scan-line"></div>
+          <div class="face-frame"><div class="corner tl"></div><div class="corner bl"></div></div>
+          <div class="face-meta">
+            <div class="left"><span class="live"></span> SCAN · FACE-014</div>
+            <span class="pill">SUSPECT</span>
+          </div>
+          <div class="verdict">
+            <div class="row">MODEL CONFIDENCE: <b>87% synthetic</b></div>
+            <div class="row">LIP-SYNC DELTA: <span>42ms</span></div>
+            <div class="row">PIXEL NOISE: <span style="color:var(--magenta-soft);">ANOMALOUS</span></div>
+            <div class="bar"><div class="bar-fill" style="width:87%;"></div></div>
+          </div>
+        </div>
+      </div>
+      <table class="ds-table" style="margin-top:12px;">
+        <thead><tr><th>Element</th><th>Spec</th></tr></thead>
+        <tbody>
+          <tr><td>.hero-visual</td><td class="val">Outer container. Gradient fill + rounded corners + border. Has parallax scroll behavior (<code>main.js:280</code>).</td></tr>
+          <tr><td>.scan-line</td><td class="val">Absolute positioned 2px line with cyan-to-magenta glow. <code>z-index: 4</code>. Loops via <code>scan</code> keyframe: 6%→92% sweep, 5.5s.</td></tr>
+          <tr><td>.face-frame</td><td class="val">Absolute centered 50%×49% box with cyan border + inset shadow to mask the face. <code>z-index: 1</code>. Has <code>::before</code>/<code>::after</code> corner brackets (top-left + bottom-right). Inner <code>.corner</code> elements add magenta brackets (top-right, bottom-left).</td></tr>
+          <tr><td>.face-meta</td><td class="val">Absolute positioned at top. Flex space-between. <code>z-index: 5</code>. Contains <code>.live</code> (pulsing magenta dot, <code>animation: pulse 1.4s</code>) and <code>.pill</code> (magenta badge with border).</td></tr>
+          <tr><td>.verdict</td><td class="val">Absolute bottom panel with <code>backdrop-filter: blur(12px)</code>, magenta border, shadow glow. <code>z-index: 5</code>. Contains .row items and .bar/.bar-fill. The bar-fill animates in JS via <code>main.js:122</code>.</td></tr>
+          <tr><td>.face-grid / .face-thumb</td><td class="val">Thumbnail strip below the scanner. <code>z-index: 6</code> to overlay the frame. Active thumb: magenta border + glow. Inactive: transparent, 0.5 opacity. Click event in JS pauses auto-rotation.</td></tr>
+        </tbody>
+      </table>
+      <div class="usage-note" style="margin-top:10px;">
+        <strong>JS contract:</strong> The <code>faceData</code> array in <code>main.js:88-95</code> drives all displayed values: <code>{ id, confidence, lipSync, noise }</code>.
+        The <code>data-scan-id</code> attribute on the scan ID label and <code>data-verdict</code> on the verdict panel are the JS hooks.
+        Thumbnail images come from <code>assets/av_*.png</code> (6 files). Add new faces by extending the array and adding matching thumbnails.
+      </div>
+    </div>
+
+    <!-- Download Card -->
+    <div class="component-preview">
+      <div class="preview-head"><span>Download Card</span><span>.download-card</span></div>
+      <div class="preview-body">
+        <div class="download-card">
+          <div class="download-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="download-info">
+            <h3>Complete Reference Guide</h3>
+            <p>Full program guide with NIST mappings and ROI calculations.</p>
+            <span class="download-meta">HTML · Updated 2026</span>
+          </div>
+          <span class="download-btn">Download</span>
+        </div>
+        <table class="ds-table" style="margin-top:12px;">
+          <thead><tr><th>Element</th><th>Spec</th></tr></thead>
+          <tbody>
+            <tr><td>.download-card</td><td class="val">3-column grid: <code>60px · 1fr · auto</code>. Border + radius. Hover shifts border to glow. Published as a link (<code>&lt;a&gt;</code>).</td></tr>
+            <tr><td>.download-icon</td><td class="val">Centered SVG icon, cyan gradient, 44px box with rounded corners. SVG is hardcoded, not an image.</td></tr>
+            <tr><td>.download-btn</td><td class="val">Gradient button pill on the right side. <code>white-space: nowrap</code>. Hover lifts via translateY.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Dashboard Promo -->
+    <div class="component-preview">
+      <div class="preview-head"><span>Dashboard Promo Card</span><span>.dashboard-promo-card</span></div>
+      <div class="preview-body">
+        <div class="card dashboard-promo-card">
+          <h3 style="color:var(--cyan-soft);">Track metrics live</h3>
+          <p>Launch the Dashboard to visualize program metrics, simulate drill results, and manage maturity levels.</p>
+          <a href="#" class="btn btn--primary" style="display:inline-flex;">Launch Live Dashboard <span class="arrow">↗</span></a>
+        </div>
+        <table class="ds-table" style="margin-top:12px;">
+          <thead><tr><th>Element</th><th>Spec</th></tr></thead>
+          <tbody>
+            <tr><td>.dashboard-promo-card</td><td class="val"><code>.card</code> with <code>padding: 32px 40px</code> + radial glow pseudo-element (cyan gradient). Uses flex row layout for text + CTA.</td></tr>
+            <tr><td>Layout</td><td class="val">Inner flex row: text side (flex:1, min-width 280px) + CTA side. Wraps on small screens.</td></tr>
+            <tr><td>CTA Link</td><td class="val"><code>target="_blank" rel="noopener"</code> to <code>https://deepfakedefence-dashboard.vercel.app/</code>. Always opens in new tab.</td></tr>
+          </tbody>
+        </table>
+        <div class="usage-note" style="margin-top:10px;">
+          <strong>Important:</strong> The static site links to the Vercel-hosted dashboard. The Next.js app has its own <code>/dashboard</code> route with recharts. These are two separate things. Do not conflate.
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="component-preview">
+      <div class="preview-head"><span>Contact Form</span><span>.form inside .card (resources.html)</span></div>
+      <div class="preview-body">
+        <div style="max-width:500px;">
+          <form class="form card" data-form>
+            <div class="form-row">
+              <div><label>Name</label><input type="text" placeholder="Your name" /></div>
+              <div><label>Role</label><input type="text" placeholder="Your role" /></div>
+            </div>
+            <div>
+              <label>Message</label>
+              <textarea placeholder="What problem are you trying to solve?"></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary">Send <span class="arrow">→</span></button>
+          </form>
+        </div>
+        <table class="ds-table" style="margin-top:12px;">
+          <thead><tr><th>Element</th><th>Spec</th></tr></thead>
+          <tbody>
+            <tr><td>.form</td><td class="val">Grid with <code>gap: 16px</code>. Labels: <code>font-size: 0.82rem; color: var(--text-dim)</code>.</td></tr>
+            <tr><td>.form-row</td><td class="val">2-column grid at desktop, 1-column at &lt;600px. <code>gap: 16px</code>.</td></tr>
+            <tr><td>input / select / textarea</td><td class="val">Dark background, border, cyan focus ring (<code>box-shadow: 0 0 0 3px rgba(76,210,255,0.1)</code>). Font: inherit. Select: custom arrow via CSS gradients, <code>color-scheme: dark</code>.</td></tr>
+            <tr><td>.form-status</td><td class="val">Hidden success message. Shows on submit via <code>.show</code> class. Green border + background.</td></tr>
+          </tbody>
+        </table>
+        <div class="usage-note" style="margin-top:10px;">
+          <strong>JS:</strong> The form handler in <code>main.js:255-264</code> simply hides the form and shows a success message. No server submission. For production, wire <code>data-form</code> to a real endpoint.
+        </div>
+      </div>
+    </div>
+
+    <!-- Bullets + Callout -->
+    <div class="component-preview">
+      <div class="preview-head"><span>Utility Components</span><span>.bullets · .callout · .tag-row · .divider</span></div>
+      <div class="preview-body">
+        <div style="max-width:500px;">
+          <ul class="bullets">
+            <li><strong>Treasury &amp; AP:</strong> direct financial loss</li>
+            <li><strong>IT helpdesk:</strong> access bypass, lateral movement</li>
+          </ul>
+          <div class="callout"><strong>Observation:</strong> The median time from attack launch to first fraudulent transfer is under 30 minutes.</div>
+          <div class="tag-row"><span>visual</span><span>acoustic</span><span>artifacts</span></div>
+        </div>
+        <table class="ds-table" style="margin-top:12px;">
+          <thead><tr><th>Class</th><th>Spec</th></tr></thead>
+          <tbody>
+            <tr><td>.bullets</td><td class="val"><code>list-style: none</code>. Each <code>li</code> has <code>padding-left: 30px</code> with cyan <code>::before</code> arrow (<code>content: "→"</code>).</td></tr>
+            <tr><td>.callout</td><td class="val">3px cyan left border + gradient background. <code>border-radius: 0 12px 12px 0</code>. <code>strong</code> gets white text.</td></tr>
+            <tr><td>.tag-row</td><td class="val">Flex row with <code>gap: 8px</code>. Each span: monospace, 0.7rem, pill shape with border.</td></tr>
+            <tr><td>.divider</td><td class="val">1px border line, <code>margin: 60px 0</code>. Simple and intentional.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- 5b. STATE MATRIX -->
+  <!-- ============================================================== -->
+  <section id="state-matrix" class="ds-section">
+
+    <div class="ds-label">Section 05b</div>
+    <h2 class="ds-h2">Component State Matrix <code>all interactive states</code></h2>
+    <p class="ds-desc">
+      Every interactive component in the system. Each state is documented with its CSS selector,
+      visual change, and transition timing. Use this as the source of truth when implementing
+      or auditing component behavior.
+    </p>
+
+    <div class="token-group">
+      <h4>Button system <code>.btn · .btn--primary · .btn--ghost</code></h4>
+      <table class="ds-table">
+        <thead><tr><th>State</th><th>Selector</th><th>Visual change</th><th>Transition</th></tr></thead>
+        <tbody>
+          <tr><td>Default</td><td><code>.btn</code></td><td>Base styling, transparent border</td><td>—</td></tr>
+          <tr><td>Hover</td><td><code>.btn:hover</code></td><td>translateY(-2px). Primary: intensifies glow. Ghost: bg + border brighten.</td><td>0.18s ease (transform), 0.25s ease (shadow)</td></tr>
+          <tr><td>Active</td><td><code>.btn:active</code></td><td>translateY(0). Resets lift.</td><td>0.18s ease</td></tr>
+          <tr><td>Arrow hover</td><td><code>.btn:hover .arrow</code></td><td>translateX(4px) — slides right</td><td>0.2s ease</td></tr>
+          <tr><td>Focus-visible</td><td><code>.btn:focus-visible</code></td><td>2px cyan outline (not currently in CSS — add for accessibility)</td><td>—</td></tr>
+          <tr><td>Disabled</td><td><code>.btn[disabled]</code></td><td>No disabled style exists — define <code>opacity: 0.5; cursor: not-allowed; transform: none;</code></td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="token-group">
+      <h4>Card <code>.card</code></h4>
+      <table class="ds-table">
+        <thead><tr><th>State</th><th>Selector</th><th>Visual change</th><th>Transition</th></tr></thead>
+        <tbody>
+          <tr><td>Default</td><td><code>.card</code></td><td>Gradient bg, 1px var(--border), padding 26px</td><td>—</td></tr>
+          <tr><td>Hover</td><td><code>.card:hover</code></td><td>translateY(-3px), border → var(--border-strong), bg brightens, ::before overlay fades in with cyan tint</td><td>0.25s ease (all), 0.3s ease (::before opacity)</td></tr>
+          <tr><td>Active</td><td><code>.card:active</code></td><td>No active state defined</td><td>—</td></tr>
+          <tr><td>Focus-visible</td><td><code>.card:focus-visible</code></td><td>Not defined — needs cyan outline if card is focusable</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="token-group">
+      <h4>Case Card <code>.case-card</code></h4>
+      <table class="ds-table">
+        <thead><tr><th>State</th><th>Visual change</th><th>Transition</th></tr></thead>
+        <tbody>
+          <tr><td>Default</td><td>Gradient bg, border, padding 26px</td><td>—</td></tr>
+          <tr><td>Hover</td><td>translateY(-3px), border → var(--border-strong), shadow-md</td><td>0.3s ease (all)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="token-group">
+      <h4>Pillar <code>.pillar</code></h4>
+      <table class="ds-table">
+        <thead><tr><th>State</th><th>Visual change</th><th>Transition</th></tr></thead>
+        <tbody>
+          <tr><td>Default</td><td>Gradient bg, 3px gradient ::before top bar</td><td>—</td></tr>
+          <tr><td>Hover</td><td>translateY(-4px), top bar glow intensifies</td><td>0.3s ease</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="token-group">
+      <h4>Maturity Row <code>.maturity-row</code></h4>
+      <table class="ds-table">
+        <thead><tr><th>State</th><th>Visual change</th><th>Transition</th></tr></thead>
+        <tbody>
+          <tr><td>Default</td><td>3-column grid, gradient bg, border</td><td>—</td></tr>
+          <tr><td>Hover</td><td>translateX(2px) — shifts right, border brightens</td><td>0.25s ease</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="token-group">
+      <h4>Framework Step <code>.fw-step</code></h4>
+      <table class="ds-table">
+        <thead><tr><th>State</th><th>Visual change</th><th>Transition</th></tr></thead>
+        <tbody>
+          <tr><td>Default</td><td>Centered card, gradient .num circle</td><td>—</td></tr>
+          <tr><td>Hover</td><td>translateY(-4px), border + shadow-md</td><td>0.3s ease</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="token-group">
+      <h4>NIST Chip <code>.nist-chip</code></h4>
+      <table class="ds-table">
+        <thead><tr><th>State</th><th>Selector</th><th>Visual change</th><th>Transition</th></tr></thead>
+        <tbody>
+          <tr><td>Default</td><td><code>.nist-chip</code></td><td>Violet tint bg, violet left dot via ::before</td><td>—</td></tr>
+          <tr><td>Hover</td><td><code>.nist-chip:hover</code></td><td>translateY(-1px), bg brightens, border thickens, text → white</td><td>0.2s ease</td></tr>
+          <tr><td>Active (popover open)</td><td><code>.nist-chip[aria-expanded="true"]</code></td><td>Same as hover (no separate active state)</td><td>0.2s ease</td></tr>
+          <tr><td>Focus-visible</td><td><code>.nist-chip:focus-visible</code></td><td>2px cyan outline + offset</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="token-group">
+      <h4>Quiz Option <code>.opt</code></h4>
+      <table class="ds-table">
+        <thead><tr><th>State</th><th>Selector</th><th>Visual change</th><th>Transition</th></tr></thead>
+        <tbody>
+          <tr><td>Default</td><td><code>.opt</code></td><td>dark bg, border, text-left</td><td>—</td></tr>
+          <tr><td>Hover</td><td><code>.opt:hover</code></td><td>translateX(4px), cyan tint, border brightens</td><td>0.2s ease</td></tr>
+          <tr><td>Correct (locked)</td><td><code>.opt.correct</code></td><td>Green tint bg, green border, green text, disabled cursor</td><td>0.2s ease</td></tr>
+          <tr><td>Wrong (locked)</td><td><code>.opt.wrong</code></td><td>Red tint bg, red border, red text, disabled cursor</td><td>0.2s ease</td></tr>
+          <tr><td>Disabled (after answer)</td><td><code>.opt:disabled</code></td><td><code>cursor: default</code></td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="token-group">
+      <h4>Form Inputs <code>input · select · textarea</code></h4>
+      <table class="ds-table">
+        <thead><tr><th>State</th><th>Selector</th><th>Visual change</th><th>Transition</th></tr></thead>
+        <tbody>
+          <tr><td>Default</td><td><code>.form input</code></td><td>Dark bg, border, inherit font</td><td>—</td></tr>
+          <tr><td>Focus</td><td><code>.form input:focus</code></td><td>Border → cyan, bg → cyan tint, 3px cyan ring shadow, outline 0</td><td>0.2s ease</td></tr>
+          <tr><td>Placeholder</td><td><code>::placeholder</code></td><td>var(--text-faint) color</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="usage-note">
+      <strong>Engineering rule:</strong> Every interactive component must handle these states: <code>default</code>, <code>hover</code>, <code>focus-visible</code> (keyboard users), <code>disabled</code> (where applicable). The table above shows gaps — notably <code>focus-visible</code> is missing from buttons, cards, and quiz options. Add these in the next CSS pass.
+    </div>
+  </section>
+  <!-- ============================================================== -->
+  <section id="patterns" class="ds-section">
+
+    <div class="ds-label">Section 06</div>
+    <h2 class="ds-h2">Design Patterns <code>recurring solutions</code></h2>
+    <p class="ds-desc">
+      Common layout and content patterns used across the site. Every new page should follow these
+      structural templates.
+    </p>
+
+    <div class="token-group">
+      <h3>Page Architecture Template</h3>
+      <p style="font-size:0.85rem; color:var(--text-dim);">
+        Every content page follows this exact structure. Copy the pattern for new pages:
+      </p>
+      <table class="ds-table">
+        <thead><tr><th>Layer</th><th>Element</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="val"><code>.scroll-progress</code></td><td>Always first child of body. Fixed 2px gradient bar.</td></tr>
+          <tr><td>2</td><td class="val"><code>nav.nav > .container.nav-inner</code></td><td>Sticky nav with brand + links + toggle</td></tr>
+          <tr><td>3</td><td class="val"><code>header.hero</code></td><td>Eyebrow + h1 + lede + optional CTA</td></tr>
+          <tr><td>4</td><td class="val"><code>section.section</code> × N</td><td>Each major content block. Eyebrow + h2 + content.</td></tr>
+          <tr><td>5</td><td class="val"><code>section.section .cta-banner</code></td><td>Optional CTA before footer. Gradient banner.</td></tr>
+          <tr><td>6</td><td class="val"><code>footer.footer</code></td><td>Grid footer with reference + program + contact columns</td></tr>
+          <tr><td>7</td><td class="val"><code>script(src="js/main.js")</code></td><td>Always load last. Before closing body.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="token-group">
+      <h3>Section Header Pattern</h3>
+      <p class="ds-desc">
+        Every major content section starts with <code>.section-header</code>. It centers the
+        content, wraps at 780px, and includes an eyebrow, an h2 with gradient text, and an
+        optional description paragraph. NIST chips can sit inside the h2.
+      </p>
+      <div class="demo-box">
+        <div class="section-header" style="margin-bottom:0;">
+          <span class="eyebrow">MODULE 02 · DETECTION STACK</span>
+          <h2>Three layers, one decision <span class="nist-chip-row"><button class="nist-chip">SI-04</button></span></h2>
+          <p>Each layer catches what the others miss. Fusing them turns synthetic media into a useful decision.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="token-group">
+      <h3>CTA Banner Pattern</h3>
+      <p class="ds-desc">
+        Used at the bottom of every page before the footer. A 2-column grid (1.4fr / 1fr) with
+        gradient background, grid overlay, and pink glow. The text side explains the next step;
+        the action side has 1-2 buttons.
+      </p>
+      <div class="cta-banner" style="margin:0;">
+        <div>
+          <h2>Detection is the next page.</h2>
+          <p>Once you can describe the attack, you can pick the signals that catch it.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="#" class="btn btn--primary">Open Detection <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- 6b. EXAMPLE COMPOSITION -->
+  <!-- ============================================================== -->
+  <section id="composition" class="ds-section">
+
+    <div class="ds-label">Section 06b</div>
+    <h2 class="ds-h2">Example Compositions <code>components in context</code></h2>
+    <p class="ds-desc">
+      Realistic page sections that combine multiple design system components together.
+      These show how cards, badges, buttons, tags, and typography compose into production
+      layouts. Use these as reference when building new pages.
+    </p>
+
+    <div class="token-group">
+      <h4>Composition A: Detection verdict card</h4>
+      <p style="color:var(--text-dim); font-size:0.88rem; margin-bottom:14px;">
+        A media scan result card combining a <code>.card</code> wrapper, <code>.signal-table</code>,
+        a <code>.tag-row</code> classification, a gradient score ring, and a <code>.btn--primary</code> CTA.
+        This is the unit pattern for the Detection Lab in the Next.js app.
+      </p>
+      <div style="max-width:580px;" class="card" style="padding:0; overflow:hidden;">
+        <div style="padding:20px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <div style="font-family:var(--font-mono); font-size:0.65rem; color:var(--text-mute); letter-spacing:0.18em; text-transform:uppercase; margin-bottom:4px;">SCAN-2026-1042</div>
+            <h3 style="margin:0; font-size:1.05rem;">exec_cfo_voice_clip.wav</h3>
+          </div>
+          <span class="tag--red" style="position:static; font-size:0.6rem; padding:4px 10px;">DEEPFAKE</span>
+        </div>
+        <div style="padding:20px 24px; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+          <div>
+            <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-mute); margin-bottom:2px;">CONFIDENCE</div>
+            <div style="font-family:var(--font-mono); font-size:1.3rem; font-weight:800; color:var(--magenta);">92%</div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-mute); margin-bottom:2px;">VERDICT</div>
+            <div style="font-family:var(--font-mono); font-size:1.3rem; font-weight:800; color:var(--red);">SYNTHETIC</div>
+          </div>
+        </div>
+        <div style="padding:0 24px 16px;">
+          <div style="height:6px; border-radius:999px; background:rgba(255,255,255,0.06); overflow:hidden;">
+            <div style="height:100%; width:92%; background:linear-gradient(90deg, var(--magenta), var(--red)); border-radius:999px; box-shadow:0 0 8px var(--magenta);"></div>
+          </div>
+        </div>
+        <div style="padding:0 24px 20px;">
+          <div class="tag-row" style="margin:0;">
+            <span style="font-size:0.6rem;">voice_clone</span>
+            <span style="font-size:0.6rem;">spectral_artifact</span>
+            <span style="font-size:0.6rem;">high_risk</span>
+          </div>
+        </div>
+        <div style="padding:16px 24px; border-top:1px solid var(--border); background:rgba(255,255,255,0.015); display:flex; gap:10px;">
+          <a href="#" class="btn btn--primary" style="font-size:0.82rem; padding:10px 18px;">View Analysis <span class="arrow">→</span></a>
+          <a href="#" class="btn btn--ghost" style="font-size:0.82rem; padding:10px 18px;">Download Report</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="token-group" style="margin-top:36px;">
+      <h4>Composition B: Program status dashboard widget</h4>
+      <p style="color:var(--text-dim); font-size:0.88rem; margin-bottom:14px;">
+        Combines <code>.pillar</code> mini-cards, <code>.maturity-row</code>, and a condensed
+        <code>.timeline</code> into a sidebar widget. This is the pattern used in the Next.js
+        app's sidebar footer and admin console.
+      </p>
+      <div style="max-width:420px; background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01)); border:1px solid var(--border); border-radius:var(--radius); padding:20px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+          <span class="eyebrow" style="margin:0;">PROGRAM HEALTH</span>
+          <span style="font-family:var(--font-mono); font-size:0.65rem; color:var(--cyan); background:rgba(76,210,255,0.08); padding:3px 8px; border-radius:6px;">L3 · DEFINED</span>
+        </div>
+        <div style="height:4px; border-radius:999px; background:rgba(255,255,255,0.06); overflow:hidden; margin-bottom:16px;">
+          <div style="height:100%; width:65%; background:var(--grad); border-radius:999px; transition:width 1s ease;"></div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px;">
+          <div style="padding:8px 12px; background:rgba(255,255,255,0.02); border-radius:8px; border:1px solid var(--border);">
+            <div style="font-family:var(--font-mono); font-size:0.6rem; color:var(--text-mute); text-transform:uppercase;">Scans</div>
+            <div style="font-family:var(--font-mono); font-size:1.1rem; font-weight:700; color:var(--cyan);">14</div>
+          </div>
+          <div style="padding:8px 12px; background:rgba(255,255,255,0.02); border-radius:8px; border:1px solid var(--border);">
+            <div style="font-family:var(--font-mono); font-size:0.6rem; color:var(--text-mute); text-transform:uppercase;">Drills</div>
+            <div style="font-family:var(--font-mono); font-size:1.1rem; font-weight:700; color:var(--violet-soft);">3/4</div>
+          </div>
+          <div style="padding:8px 12px; background:rgba(255,255,255,0.02); border-radius:8px; border:1px solid var(--border);">
+            <div style="font-family:var(--font-mono); font-size:0.6rem; color:var(--text-mute); text-transform:uppercase;">Training</div>
+            <div style="font-family:var(--font-mono); font-size:1.1rem; font-weight:700; color:var(--magenta-soft);">4/5</div>
+          </div>
+          <div style="padding:8px 12px; background:rgba(255,255,255,0.02); border-radius:8px; border:1px solid var(--border);">
+            <div style="font-family:var(--font-mono); font-size:0.6rem; color:var(--text-mute); text-transform:uppercase;">NIST Map</div>
+            <div style="font-family:var(--font-mono); font-size:1.1rem; font-weight:700; color:var(--green);">8/10</div>
+          </div>
+        </div>
+        <a href="#" class="btn btn--ghost" style="width:100%; justify-content:center; font-size:0.82rem;">Open Dashboard <span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <div class="token-group" style="margin-top:36px;">
+      <h4>Composition C: Incident response runbook header</h4>
+      <p style="color:var(--text-dim); font-size:0.88rem; margin-bottom:14px;">
+        A page header combining <code>.eyebrow</code>, <code>.nist-chip-row</code>, lede text,
+        and action buttons. This is the standard header pattern for every program page (threats,
+        detection, response, etc.).
+      </p>
+      <div style="padding:32px 40px; background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01)); border:1px solid var(--border); border-radius:var(--radius-lg);">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap;">
+          <div style="flex:1; min-width:280px;">
+            <span class="eyebrow" style="margin-bottom:8px;">INCIDENT RESPONSE · PB-03</span>
+            <h2 style="font-size:1.5rem; margin:0 0 10px;">Vendor payment redirection</h2>
+            <p style="color:var(--text-dim); font-size:0.92rem; max-width:520px; margin-bottom:16px;">
+              A supplier claims to have "rebranded" and sends new bank details via a PDF. The
+              email thread looks legitimate and the named contact is real.
+            </p>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <span class="nist-chip">AC-02</span>
+              <span class="nist-chip">IA-02</span>
+              <span class="nist-chip">IR-04</span>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <a href="#" class="btn btn--primary" style="font-size:0.82rem;">Activate Runbook <span class="arrow">→</span></a>
+            <a href="#" class="btn btn--ghost" style="font-size:0.82rem;">Download PDF</a>
+          </div>
+        </div>
+        <div style="margin-top:20px; padding-top:16px; border-top:1px solid var(--border); display:flex; gap:24px; font-size:0.78rem; color:var(--text-mute); font-family:var(--font-mono); flex-wrap:wrap;">
+          <span>SEVERITY: <span style="color:var(--red); font-weight:700;">CRITICAL</span></span>
+          <span>RPO: 15 min</span>
+          <span>RTO: 4 hours</span>
+          <span>LAST TESTED: 2026-05-12</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="usage-note">
+      <strong>How to use these:</strong> Each composition above is built entirely from documented design system components and tokens. Copy the HTML structure, swap the data, and reuse in your pages. These are not abstract examples — they match real production patterns used on the threat-landscape, program, and admin pages.
+    </div>
+  </section>
+  <!-- ============================================================== -->
+  <section id="motion" class="ds-section">
+
+    <div class="ds-label">Section 07</div>
+    <h2 class="ds-h2">Motion &amp; Animation <code>transitions + effects</code></h2>
+    <p class="ds-desc">
+      Motion is used deliberately for <strong>feedback, state change, and atmosphere</strong>.
+      No random bounce or decorative spin. Every animation in the system serves a purpose.
+    </p>
+
+    <div class="usage-note">
+      <strong>Accessibility:</strong> The <code>@media (prefers-reduced-motion: reduce)</code> media query
+      (<code>style.css:1123</code>) kills all animations and transitions globally. This is enforced
+      on every component. Do not add <code>!important</code> overrides.
+    </div>
+
+    <div class="token-group">
+      <h3>Animation Inventory</h3>
+      <table class="ds-table">
+        <thead><tr><th>Animation</th><th>Duration</th><th>Easing</th><th>Element</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>scan</td><td>5.5s linear infinite</td><td>linear</td><td>.scan-line</td><td>Hero face-scan line sweeps top→bottom continuously</td></tr>
+          <tr><td>scanMove</td><td>2s ease-in-out infinite</td><td>ease-in-out</td><td>.scan-overlay</td><td>Inner face glow moves vertically</td></tr>
+          <tr><td>pulse</td><td>1.4s–2.4s infinite</td><td>ease-in-out</td><td>.eyebrow::before, .live dot, .hero-meta .dot</td><td>Breathing indicator for "live" states</td></tr>
+          <tr><td>pageIn</td><td>0.5s ease-out</td><td>ease-out</td><td>body</td><td>Page-load fade-in + translateY(8px→0)</td></tr>
+          <tr><td>card hover</td><td>0.25s ease</td><td>ease</td><td>.card, .pillar, .fw-step, .case-card, .maturity-row</td><td>translateY lift + border-color + box-shadow on hover</td></tr>
+          <tr><td>button hover</td><td>0.18s ease</td><td>ease</td><td>.btn</td><td>translateY(-2px) lift</td></tr>
+          <tr><td>bar fill</td><td>1.2s cubic-bezier</td><td>cubic-bezier(0.4, 0, 0.2, 1)</td><td>.bar-fill, [data-fusion-bar]</td><td>Detection confidence bar animation on scroll</td></tr>
+          <tr><td>face crossfade</td><td>0.15s ease</td><td>ease</td><td>.face-profile</td><td>Opacity crossfade when switching faces</td></tr>
+          <tr><td>arrow slide</td><td>0.2s ease</td><td>ease</td><td>.btn .arrow</td><td>→ slides 4px right on button hover</td></tr>
+          <tr><td>reveal on scroll</td><td>0.6s ease</td><td>ease</td><td>.card, .case-card, .pillar, .fw-step, .maturity-row, .cta-banner, .quiz, .faq-item</td><td>IntersectionObserver-triggered opacity + translateY. Stagger delay per element (max 0.3s).</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="token-group">
+      <h3>Scroll-triggered rules</h3>
+      <div class="do-dont">
+        <div class="do">Use IntersectionObserver with <code>threshold: 0.08</code> and <code>rootMargin: '0px 0px -40px 0px'</code>. Animate once, unobserve immediately.</div>
+        <div class="dont">Re-trigger animations on every scroll. Use CSS-only scroll-driven animations (unsupported across browsers).</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- 8. RESPONSIVE -->
+  <!-- ============================================================== -->
+  <section id="responsive" class="ds-section">
+
+    <div class="ds-label">Section 08</div>
+    <h2 class="ds-h2">Responsive Breakpoints <code>media queries</code></h2>
+    <p class="ds-desc">
+      Two breakpoints. The site is desktop-first. Mobile adaptation is handled via
+      breakpoint-specific overrides in <code>style.css</code>.
+    </p>
+
+    <table class="ds-table">
+      <thead><tr><th>Breakpoint</th><th>Target</th><th>What changes</th></tr></thead>
+      <tbody>
+        <tr><td>900px</td><td class="val">Tablet / small desktop</td><td>Nav collapses to hamburger; hero becomes single-column; grid-3→grid-2; pillars→2-col; framework→2-col; footer→2-col</td></tr>
+        <tr><td>640px (or 560-720 range)</td><td class="val">Mobile</td><td>All grids (2, 3, 4) → 1 column; stat-strip→2-col; maturity→stacked; CTA→single-col; form row→single-col; CVE row→stacked</td></tr>
+      </tbody>
+    </table>
+
+    <div class="usage-note">
+      <strong>Rule:</strong> If you are adding a new page or component, test at exactly these two breakpoints. Do not add custom breakpoints without team review. If the design breaks at an in-between size, adjust the global breakpoint, not a per-component one.
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- 9. USAGE GUIDE -->
+  <!-- ============================================================== -->
+  <section id="usage" class="ds-section">
+
+    <div class="ds-label">Section 09</div>
+    <h2 class="ds-h2">Usage Guide <code>for engineering teams</code></h2>
+    <p class="ds-desc">
+      How to work with this system — conventions, integration paths, and team workflows.
+    </p>
+
+    <div class="responsive-grid">
+      <div class="spec-card">
+        <h4>Adding a new page</h4>
+        <ol style="color:var(--text-dim); font-size:0.88rem; padding-left:18px; margin:0;">
+          <li>Copy the <code>nav</code> block from any existing page</li>
+          <li>Update <code>.nav-links a.active</code> on the current page</li>
+          <li>Add <code>header.hero</code> with eyebrow + h1 + lede</li>
+          <li>Add <code>section.section</code> blocks with <code>.section-header</code></li>
+          <li>Add <code>.cta-banner</code> section before footer</li>
+          <li>Copy <code>footer.footer</code> and <code>script</code> tag</li>
+          <li>Test at 900px and 640px breakpoints</li>
+        </ol>
+      </div>
+
+      <div class="spec-card">
+        <h4>Adding a new NIST chip</h4>
+        <ol style="color:var(--text-dim); font-size:0.88rem; padding-left:18px; margin:0;">
+          <li>Add a <code>&lt;button class="nist-chip"&gt;</code> element</li>
+          <li>Set the five <code>data-nist-*</code> attributes</li>
+          <li>Wrap in <code>&lt;span class="nist-chip-row"&gt;</code> if inline</li>
+          <li>No JS changes needed — the popover handler queries all <code>.nist-chip</code> elements</li>
+        </ol>
+      </div>
+
+      <div class="spec-card">
+        <h4>Adding a quiz question</h4>
+        <ol style="color:var(--text-dim); font-size:0.88rem; padding-left:18px; margin:0;">
+          <li>Locate the <code>data-quiz</code> JSON on <code>training.html</code></li>
+          <li>Add a new object to the array with <code>q</code>, <code>options[]</code>, <code>answer</code>, <code>explain</code></li>
+          <li>No HTML changes needed. The JS parses the JSON automatically</li>
+        </ol>
+      </div>
+
+      <div class="spec-card">
+        <h4>Dashboard Integration</h4>
+        <p>The <code>main.js</code> shared script contains all interactive logic. If you build
+        the dashboard (currently at <code>deepfakedefence-dashboard.vercel.app</code>), extract
+        the token set from <code>:root</code> in <code>style.css</code> and import these CSS
+        variables into the dashboard's stylesheet. Match the component tokens exactly — do not
+        reinterpret them.</p>
+        <table class="ds-table" style="margin-top:10px;">
+          <thead><tr><th>File</th><th>What to extract</th></tr></thead>
+          <tbody>
+            <tr><td>style.css:1-65</td><td class="val">All <code>:root</code> tokens — the complete design vocabulary</td></tr>
+            <tr><td>main.js:1-372</td><td class="val">All interactive behavior — NIST popovers, quiz, face scan, stat counters, scroll progress</td></tr>
+            <tr><td>Each .html</td><td class="val">Page-specific component markup patterns</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== APP INTEGRATION SECTION ===== -->
+    <div class="token-group" style="margin-top:28px;">
+      <h3>Next.js App Integration <code>app/ · React 19 · Next.js 16</code></h3>
+      <p class="ds-desc">
+        A companion Next.js application lives at <code>app/</code> (root of the parent project). It translates the static design system into a
+        fully interactive platform with React components, client-side state, and real-time simulation. Below is the mapping between the
+        static site's design tokens and the Next.js app's Tailwind/CSS implementation.
+      </p>
+
+      <div class="usage-note">
+        <strong>Architecture note:</strong> The <code>app/</code> directory is a separate codebase from <code>deepfake-defense/</code>.
+        The static site is the design source of truth. The Next.js app is the interactive implementation. Changes to tokens should
+        be made in <code>deepfake-defense/css/style.css</code> first, then synced to <code>app/src/app/globals.css</code>.
+      </div>
+
+      <table class="ds-table">
+        <thead><tr><th>Aspect</th><th>Static Site (<code>deepfake-defense/</code>)</th><th>Next.js App (<code>app/</code>)</th></tr></thead>
+        <tbody>
+          <tr><td>Framework</td><td class="val">Plain HTML/CSS/JS — 7 pages</td><td class="val">Next.js 16 with App Router, React 19, TypeScript</td></tr>
+          <tr><td>Styling</td><td class="val">Single <code>style.css</code> with <code>:root</code> CSS custom properties</td><td class="val">Tailwind CSS v4 + <code>globals.css</code> with <code>@theme</code> directives + duplicate <code>:root</code> variables</td></tr>
+          <tr><td>State</td><td class="val">No state management. Vanilla JS for interactions.</td><td class="val"><code>AppContext.tsx</code> — React Context with localStorage persistence. Tracks maturity answers, scanned files, simulator outcomes, completed modules.</td></tr>
+          <tr><td>Routing</td><td class="val">Flat HTML files with file-based navigation</td><td class="val">Next.js App Router — 16 routes: <code>/</code>, <code>/about</code>, <code>/threats</code>, <code>/simulator</code>, <code>/detection</code>, <code>/response</code>, <code>/awareness</code>, <code>/training</code>, <code>/assessment</code>, <code>/governance</code>, <code>/nist</code>, <code>/dashboard</code>, <code>/resources</code>, <code>/contact</code>, <code>/admin</code></td></tr>
+          <tr><td>Layout</td><td class="val">Sticky top nav + footer. Scroll-based layout.</td><td class="val">Split layout: fixed sidebar (<code>Sidebar.tsx</code>) + header + scrollable content area. Responsive with mobile overlay drawer.</td></tr>
+          <tr><td>Animations</td><td class="val">Pure CSS keyframes + IntersectionObserver in <code>main.js</code></td><td class="val"><code>framer-motion</code> (v12) — page transitions (<code>AnimatePresence</code>), sidebar spring animation, hover states</td></tr>
+          <tr><td>Icons</td><td class="val">Emoji + text arrows</td><td><code>lucide-react</code> (v1.20) — 16+ icon components in sidebar, plus page-specific icons</td></tr>
+          <tr><td>Charts</td><td class="val">None — static numbers only</td><td><code>recharts</code> (v3.8) — dashboard charts and visualizations</td></tr>
+          <tr><td>Utility classes</td><td class="val">BEM-style hand-crafted CSS</td><td><code>tailwind-merge</code> + <code>clsx</code> for conditional class composition</td></tr>
+          <tr><td>Fonts</td><td class="val">Google Fonts via <code>&lt;link&gt;</code></td><td><code>next/font/google</code> — Inter + JetBrains Mono loaded as CSS variables</td></tr>
+          <tr><td>Public assets</td><td class="val"><code>assets/</code> in <code>deepfake-defense/</code></td><td><code>app/public/assets/</code> — referenced in sidebar brand header, hero face scanner</td></tr>
+        </tbody>
+      </table>
+
+      <div class="token-group" style="margin-top:20px;">
+        <h4>Token translation: <code>:root</code> CSS → Tailwind <code>@theme</code></h4>
+        <table class="ds-table">
+          <thead><tr><th>CSS Token (<code>style.css</code>)</th><th>Tailwind Theme (<code>globals.css</code>)</th><th>Usage in JSX</th></tr></thead>
+          <tbody>
+            <tr><td class="token">--bg-0: #05060d</td><td class="val"><code>--color-bg-0: #05060d</code></td><td><code>bg-bg-0</code> or raw <code>bg-[#05060d]</code></td></tr>
+            <tr><td class="token">--cyan: #4cd2ff</td><td class="val"><code>--color-cyan-brand: #4cd2ff</code></td><td><code>text-cyan-brand</code>, <code>border-cyan-brand/20</code></td></tr>
+            <tr><td class="token">--violet: #8b5cf6</td><td class="val"><code>--color-violet-brand: #8b5cf6</code></td><td><code>text-violet-soft</code>, <code>bg-violet-brand/10</code></td></tr>
+            <tr><td class="token">--magenta: #f472b6</td><td class="val"><code>--color-magenta-brand: #f472b6</code></td><td><code>text-magenta-soft</code>, <code>border-magenta-brand/30</code></td></tr>
+            <tr><td class="token">--grad</td><td class="val">No direct equivalent</td><td><code>bg-gradient-to-r from-cyan-brand via-violet-brand to-magenta-brand</code></td></tr>
+            <tr><td class="token">--font-mono</td><td class="val"><code>--font-mono: "JetBrains Mono"...</code></td><td><code>font-mono</code></td></tr>
+            <tr><td class="token">--font-sans</td><td class="val"><code>--font-sans: "Inter"...</code></td><td><code>font-sans</code> (default)</td></tr>
+            <tr><td class="token">.glass-panel</td><td class="val">Utility class in <code>globals.css:122</code></td><td><code>className="glass-panel"</code></td></tr>
+          </tbody>
+        </table>
+        <div class="usage-note" style="margin-top:10px;">
+          <strong>Important:</strong> The Tailwind <code>@theme</code> tokens (prefixed <code>--color-*-brand</code>) do NOT auto-generate arbitrary color utilities. The app often uses bracket notation like <code>bg-[#05060d]</code> or passes opacity via <code>/20</code> syntax. The <code>:root</code> fallback variables in <code>globals.css:29-51</code> ensure compatibility with non-Tailwind CSS.
+        </div>
+      </div>
+
+      <div class="token-group">
+        <h4>Sidebar navigation groups</h4>
+        <table class="ds-table">
+          <thead><tr><th>Group</th><th>Routes</th><th>Icon component</th></tr></thead>
+          <tbody>
+            <tr><td>Overview & Threat</td><td class="val"><code>/</code>, <code>/about</code>, <code>/threats</code></td><td>Shield, Info, AlertTriangle</td></tr>
+            <tr><td>Detection & Drill</td><td class="val"><code>/simulator</code>, <code>/detection</code>, <code>/response</code></td><td>Play, Cpu, Zap</td></tr>
+            <tr><td>Training & Frameworks</td><td class="val"><code>/awareness</code>, <code>/training</code>, <code>/assessment</code>, <code>/governance</code>, <code>/nist</code></td><td>Lightbulb, GraduationCap, CheckSquare, Scale, Layers</td></tr>
+            <tr><td>Executive & Admin</td><td class="val"><code>/dashboard</code>, <code>/resources</code>, <code>/contact</code>, <code>/admin</code></td><td>BarChart3, BookOpen, Mail, Settings</td></tr>
+          </tbody>
+        </table>
+        <div class="usage-note" style="margin-top:10px;">
+          <strong>Adding a route:</strong> Create a folder in <code>app/src/app/</code> with a <code>page.tsx</code>. Add the link to
+          <code>Sidebar.tsx</code> under the appropriate group. Routes auto-highlight based on <code>pathname.startsWith(href)</code>.
+        </div>
+      </div>
+
+      <div class="token-group">
+        <h4>AppContext — shared state model</h4>
+        <table class="ds-table">
+          <thead><tr><th>State</th><th>Type</th><th>Persistence</th><th>Used by</th></tr></thead>
+          <tbody>
+            <tr><td>maturityAnswers</td><td class="val"><code>{[key: number]: boolean}</code></td><td><code>localStorage('df_maturity_answers')</code></td><td>Assessment page, dashboard, sidebar level badge</td></tr>
+            <tr><td>completedModules</td><td class="val"><code>number[]</code></td><td><code>localStorage('df_completed_modules')</code></td><td>Training center, sidebar badge (e.g. 3/5)</td></tr>
+            <tr><td>simulatorOutcomes</td><td class="val"><code>SimulatorOutcome[]</code></td><td><code>localStorage('df_simulator_outcomes')</code></td><td>Simulator page, sidebar badge (e.g. 2/4)</td></tr>
+            <tr><td>scannedFiles</td><td class="val"><code>ScannedFile[]</code></td><td><code>localStorage('df_scanned_files')</code></td><td>Detection lab, admin console, dashboard</td></tr>
+            <tr><td>userName</td><td class="val"><code>string</code></td><td>In-memory</td><td>Admin console, header display</td></tr>
+          </tbody>
+        </table>
+        <div class="usage-note" style="margin-top:10px;">
+          <strong>Derived values:</strong> <code>maturityLevel</code> (L0-L4 with name + description), <code>threatsLoggedCount</code>
+          (scans with score ≥ 50), <code>activeDrillsCount</code> (4 - simulatorOutcomes.length). All computed in <code>AppContext.tsx:177-229</code>.
+        </div>
+      </div>
+
+      <div class="token-group">
+        <h4>Component mapping: Static ↔ Next.js</h4>
+        <table class="ds-table">
+          <thead><tr><th>Static pattern</th><th>Next.js equivalent</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>.card</td><td class="val"><code>glass-panel p-6 rounded-2xl</code></td><td>Utility class in <code>globals.css:122</code> with backdrop-blur and hover effects</td></tr>
+            <tr><td>.btn--primary</td><td class="val"><code>bg-gradient-to-r from-cyan-brand via-violet-brand to-magenta-brand</code></td><td>No abstracted button component — inline classes per usage</td></tr>
+            <tr><td>.btn--ghost</td><td class="val"><code>bg-white/[0.03] border border-white/[0.08]</code></td><td>Same pattern, handcrafted per button</td></tr>
+            <tr><td>.eyebrow</td><td class="val"><code>text-[10px] font-mono text-cyan-brand tracking-widest uppercase</code></td><td>No dedicated component — pattern is repeated inline</td></tr>
+            <tr><td>.pillars / .pillar</td><td class="val"><code>grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6</code></td><td>Mapped to an array map pattern in <code>page.tsx:298-346</code></td></tr>
+            <tr><td>Face scan hero</td><td class="val"><code>/page.tsx:104-198</code></td><td>React state + <code>next/image</code> + CSS animations. Same faceData array.</td></tr>
+            <tr><td>Stat strip</td><td class="val"><code>/page.tsx:201-227</code></td><td>Static values (no counter animation in Next version)</td></tr>
+            <tr><td>CTA banner</td><td class="val"><code>p-8 rounded-2xl bg-gradient-to-r</code> + <code>Link</code></td><td>Same gradient aesthetic, calls <code>/governance</code> instead</td></tr>
+            <tr><td>NIST popover</td><td class="val">No direct equivalent yet</td><td>Not implemented in the Next.js app. Future feature.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="usage-note">
+        <strong>Dashboard URL:</strong> The live demo dashboard is deployed at <code>https://deepfakedefence-dashboard.vercel.app/</code>
+        (linked from the static site nav and CTA banners). The <code>app/</code> Next.js project contains a local
+        <code>/dashboard</code> route and charting via recharts — these are separate from the Vercel dashboard.
+      </div>
+    </div>
+
+    <div class="token-group" style="margin-top:28px;">
+      <h3>CSS Convention Summary</h3>
+      <table class="ds-table">
+        <thead><tr><th>Convention</th><th>Rule</th></tr></thead>
+        <tbody>
+          <tr><td>Naming</td><td class="val">BEM-ish: block__element--modifier. Components use flat classes (.card, .nist-chip).</td></tr>
+          <tr><td>Variables</td><td class="val">Always reference <code>var(--token)</code>. Never hardcode values.</td></tr>
+          <tr><td>Animations</td><td class="val">CSS-only except for IntersectionObserver. No JS-driven animation libraries.</td></tr>
+          <tr><td>States</td><td class="val"><code>:hover</code> → translateY lift + border highlight. <code>:active</code> → reset. <code>:focus-visible</code> → cyan outline.</td></tr>
+          <tr><td>Touch</td><td class="val">All interactive elements have <code>cursor: pointer</code>. No separate touch styles — the existing hover states degrade gracefully.</td></tr>
+          <tr><td>Font loading</td><td class="val">Google Fonts via <code>&lt;link&gt;</code> in <code>&lt;head&gt;</code>. Both Inter + JetBrains Mono load in one request.</td></tr>
+          <tr><td>Single file</td><td class="val">All CSS is in <code>style.css</code>. No code splitting. For the dashboard, extract relevant tokens.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="token-group">
+      <h3>Common Mistakes to Avoid</h3>
+      <div class="do-dont">
+        <div class="do">Always use <code>--font-mono</code> for forensic/data readouts and <code>--font-sans</code> for everything else.</div>
+        <div class="dont">Apply JetBrains Mono to body paragraphs or general UI copy. It breaks readability.</div>
+      </div>
+      <div class="do-dont" style="margin-top:8px;">
+        <div class="do">Use the <code>eyebrow</code> component at the top of every major section for hierarchy.</div>
+        <div class="dont">Create custom badge/label components. The <code>.eyebrow</code> is the only section label component.</div>
+      </div>
+      <div class="do-dont" style="margin-top:8px;">
+        <div class="do">Test accent color roles: cyan for actions, violet for standards, magenta for warnings.</div>
+        <div class="dont">Swap accent roles. A magenta CTA or a cyan warning badge breaks the semantic system.</div>
+      </div>
+      <div class="do-dont" style="margin-top:8px;">
+        <div class="do">Add new pages by following the 7-layer page architecture template.</div>
+        <div class="dont">Add custom layout containers, custom breakpoints, or ad-hoc spacing. Use <code>.container</code> and <code>.section</code>.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- 16. GIT DIFF CONVENTIONS -->
+  <!-- ============================================================== -->
+  <section id="git-conventions" class="ds-section">
+
+    <div class="ds-label">Section 16</div>
+    <h2 class="ds-h2">Git Diff Conventions <code>consistent change patterns</code></h2>
+    <p class="ds-desc">
+      Every design system change follows a predictable diff pattern. Use these templates
+      to write clear PRs that are easy for reviewers to validate. A diff should tell a
+      story — not just "changed some values."
+    </p>
+
+    <div class="token-group">
+      <h4>Pattern A: Rename a design token</h4>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div style="background:rgba(52,211,153,0.05); border:1px solid rgba(52,211,153,0.15); border-radius:8px; padding:12px; font-family:var(--font-mono); font-size:0.72rem; color:var(--text-dim);">
+          <div style="color:var(--text-mute); font-size:0.65rem; margin-bottom:6px;">DO — 3 files changed, same diff pattern</div>
+          <div style="color:var(--green);">+--cyan-action: #38bdf8;</div>
+          <div style="color:var(--red);">- --cyan: #4cd2ff;</div><br />
+          1. style.css :root <br />
+          2. designsystem.html tokens table <br />
+          3. design-tokens.json accent block
+        </div>
+        <div style="background:rgba(248,113,113,0.05); border:1px solid rgba(248,113,113,0.15); border-radius:8px; padding:12px; font-family:var(--font-mono); font-size:0.72rem; color:var(--text-dim);">
+          <div style="color:var(--red); font-size:0.65rem; margin-bottom:6px;">DON'T — only changed in CSS, missed docs</div>
+          <div style="color:var(--red);">- --cyan: #4cd2ff;</div>
+          <div style="color:var(--green);">+ --cyan: #38bdf8;</div><br />
+          "I changed the cyan — the rest will update itself"<br />
+          → No. Update all 3 files in one commit.
+        </div>
+      </div>
+      <div class="usage-note" style="margin-top:10px;">
+        <strong>Rule:</strong> A token rename touches exactly 3 files: <code>style.css</code>, <code>designsystem.html</code> (tokens table + swatch gallery), <code>design-tokens.json</code>. The Next.js <code>globals.css</code> should be updated in a separate follow-up or the same commit with a note. A PR that changes a token in only 1 of these files is rejected.
+      </div>
+    </div>
+
+    <div class="token-group">
+      <h4>Pattern B: Add a new component</h4>
+      <div style="background:rgba(52,211,153,0.05); border:1px solid rgba(52,211,153,0.15); border-radius:8px; padding:16px; font-family:var(--font-mono); font-size:0.72rem; color:var(--text-dim);">
+        <span style="color:var(--green);">+</span> css/style.css — component block with comment header<br />
+        <span style="color:var(--green);">+</span> designsystem.html — .component-preview with live example + spec table + states<br />
+        <span style="color:var(--green);">+</span> designsystem.html — state matrix entry in Section 05b<br />
+        <span style="color:var(--green);">+</span> designsystem.html — usage example in Section 06b (if a composition uses it)<br />
+        <span style="color:var(--green);">+</span> target HTML page — first production use of the component<br /><br />
+        <span style="color:var(--text-mute);">// PR description: "Adds ThreatCard component. 4 files changed. Demo on threat-landscape.html page-2."</span>
+      </div>
+      <div class="usage-note" style="margin-top:10px;">
+        <strong>Rule:</strong> Minimum 4 files for a new component. CSS + design system spec + state matrix + one production page. A component without a design system spec does not exist.
+      </div>
+    </div>
+
+    <div class="token-group">
+      <h4>Pattern C: Change a breakpoint value</h4>
+      <div style="background:rgba(52,211,153,0.05); border:1px solid rgba(52,211,153,0.15); border-radius:8px; padding:16px; font-family:var(--font-mono); font-size:0.72rem; color:var(--text-dim);">
+        <span style="color:var(--red);">-</span> @media (max-width: 900px) { ... }<br />
+        <span style="color:var(--green);">+</span> @media (max-width: 860px) { ... }<br /><br />
+        <span style="color:var(--green);">+</span> design-tokens.json — update breakpoints.tablet.value<br />
+        <span style="color:var(--green);">+</span> designsystem.html — update responsive breakpoint table<br /><br />
+        <span style="color:var(--text-mute);">// PR description: "Shrink tablet breakpoint: 900→860px. Catches iPad Mini width gap reported in issue #42."</span>
+      </div>
+      <div class="usage-note" style="margin-top:10px;">
+        <strong>Rule:</strong> A breakpoint change must be validated at the new value on real devices. Attach screenshots or a BrowserStack URL to the PR. Do not change breakpoints without team review.
+      </div>
+    </div>
+
+    <div class="token-group">
+      <h4>Pattern D: Fix component state (e.g., add focus-visible)</h4>
+      <div style="background:rgba(52,211,153,0.05); border:1px solid rgba(52,211,153,0.15); border-radius:8px; padding:16px; font-family:var(--font-mono); font-size:0.72rem; color:var(--text-dim);">
+        <span style="color:var(--green);">+</span> style.css — <span style="color:var(--green);">.btn:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }</span><br /><br />
+        <span style="color:var(--green);">+</span> designsystem.html — update Button state matrix row (focus-visible: "now handled")<br /><br />
+        <span style="color:var(--text-mute);">// PR description: "Add focus-visible ring to .btn. Closes a11y gap #17."</span>
+      </div>
+    </div>
+
+    <div class="usage-note">
+      <strong>PR template summary:</strong> Every design system PR should answer: (1) What changed? (2) Which files were updated? (3) Is the token JSON in sync? (4) Are the design system docs updated? (5) Was this tested at both breakpoints? If the answer to any of (3)-(5) is "no", the PR goes back to draft.
+    </div>
+  </section>
+  <!-- ============================================================== -->
+  <section id="zindex" class="ds-section">
+
+    <div class="ds-label">Section 10</div>
+    <h2 class="ds-h2">Z-Index Layer System <code>stacking order</code></h2>
+    <p class="ds-desc">
+      The entire site uses a controlled z-index stack. Every layer is accounted for.
+      Adding a new element with a z-index not in this chart <strong>will</strong> break
+      an existing interaction. Refer to this table and pick the correct layer.
+    </p>
+
+    <table class="ds-table">
+      <thead><tr><th>z-index</th><th>Element(s)</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><code>999</code></td><td class="val">Next.js scroll-progress bar</td><td>Only in the app version. Highest layer on the page.</td></tr>
+        <tr><td><code>100</code></td><td class="val"><code>.scroll-progress</code></td><td>Static site progress bar. Fixed at very top of viewport.</td></tr>
+        <tr><td><code>80</code></td><td class="val"><code>.nist-popover</code></td><td>Shared popover. Must overlay nav, content, everything.</td></tr>
+        <tr><td><code>50</code></td><td class="val"><code>.nav</code></td><td>Sticky top navigation. Must overlay scrolling content.</td></tr>
+        <tr><td><code>10</code></td><td class="val"><code>.hero::before</code></td><td>Hero ambient background glow layer.</td></tr>
+        <tr><td><code>6</code></td><td class="val"><code>.face-grid</code></td><td>Thumbnail strip — must sit above face-frame and verdict.</td></tr>
+        <tr><td><code>5</code></td><td class="val"><code>.face-meta</code>, <code>.verdict</code></td><td>Overlay info and verdict panel inside the hero scanner.</td></tr>
+        <tr><td><code>4</code></td><td class="val"><code>.scan-line</code></td><td>Animated scan line within the face scanner.</td></tr>
+        <tr><td><code>2</code></td><td class="val"><code>.hero::after</code></td><td>Hero grid overlay pattern.</td></tr>
+        <tr><td><code>1</code></td><td class="val"><code>.face-frame</code>, <code>.fw-step</code></td><td>Scanner frame. Framework step (above the ::before connecting line).</td></tr>
+        <tr><td><code>0</code></td><td class="val"><code>.face-silhouette</code></td><td>Background face image in the scanner.</td></tr>
+        <tr><td><code>-1</code></td><td class="val"><code>.hero-visual::before/::after</code></td><td>Scanner ambient background.</td></tr>
+        <tr><td><code>-2</code></td><td class="val"><code>body::before</code></td><td>Page-wide background gradient orbs. Fixed to viewport.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="usage-note">
+      <strong>Engineering rule:</strong> If you need a z-index not in <code>{-2, -1, 0, 1, 4, 5, 6, 10, 50, 80, 100, 999}</code>, add it to this table and explain why the existing stack does not cover the use case.
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- 11. JS CONTRACTS & DATA ATTRIBUTES -->
+  <!-- ============================================================== -->
+  <section id="js-contracts" class="ds-section">
+
+    <div class="ds-label">Section 11</div>
+    <h2 class="ds-h2">JS Contracts &amp; Data Attributes <code>main.js patterns</code></h2>
+    <p class="ds-desc">
+      The site's interactivity is driven by data attributes on HTML elements. Every attribute is a contract: if you use it in the markup, the JS behavior is guaranteed. Do not re-implement these patterns.
+    </p>
+
+    <div class="token-group">
+      <h4><code>[data-count]</code> — Animated stat counters</h4>
+      <table class="ds-table">
+        <thead><tr><th>Attribute</th><th>Type</th><th>Required</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td><code>data-count</code></td><td>Number</td><td>Yes</td><td><code>data-count="240"</code> or <code>data-count="2.4"</code></td></tr>
+          <tr><td><code>data-suffix</code></td><td>String</td><td>No</td><td><code>data-suffix="M"</code> renders as 2.4M</td></tr>
+        </tbody>
+      </table>
+      <p style="color:var(--text-dim); font-size:0.85rem; margin-top:4px;">
+        Animate on scroll via IntersectionObserver (threshold 0.4). Uses cubic ease-out over 1600ms. Falls back to immediate render if IntersectionObserver is unavailable. See <code>main.js:34-60</code>.
+      </p>
+    </div>
+
+    <div class="token-group">
+      <h4><code>[data-fusion-bar]</code> — Detection fusion bars</h4>
+      <table class="ds-table">
+        <thead><tr><th>Attribute</th><th>Type</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td><code>data-fusion-bar</code></td><td>Number (0–1)</td><td><code>data-fusion-bar="0.78"</code> → bar fills to 78%</td></tr>
+          <tr><td><code>data-fusion-val</code></td><td>Element to display value</td><td>Text content set to <code>0.78</code></td></tr>
+          <tr><td><code>data-fusion-row</code></td><td>Container grouper</td><td>Scopes the querySelector for the value element</td></tr>
+        </tbody>
+      </table>
+      <p style="color:var(--text-dim); font-size:0.85rem; margin-top:4px;">
+        Triggered on scroll via IntersectionObserver (threshold 0.3). 200ms delay, CSS transition <code>1.2s cubic-bezier(0.4, 0, 0.2, 1)</code>. See <code>main.js:157-175</code>.
+      </p>
+    </div>
+
+    <div class="token-group">
+      <h4><code>[data-quiz]</code> — Training quiz</h4>
+      <p style="color:var(--text-dim); font-size:0.85rem;">JSON array directly in the HTML attribute. Schema per object:</p>
+      <table class="ds-table">
+        <thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>q</code></td><td>String</td><td>Question text (JSON-escaped)</td></tr>
+          <tr><td><code>options</code></td><td>String[4]</td><td>Exactly 4 answer options</td></tr>
+          <tr><td><code>answer</code></td><td>Number (0–3)</td><td>Index of the correct option</td></tr>
+          <tr><td><code>explain</code></td><td>String</td><td>Explanation shown after answering</td></tr>
+        </tbody>
+      </table>
+      <p style="color:var(--text-dim); font-size:0.85rem; margin-top:4px;">
+        JS renders, locks after answer, scores, provides feedback, and shows restart. See <code>main.js:178-253</code>.
+      </p>
+    </div>
+
+    <div class="token-group">
+      <h4><code>[data-form]</code> — Contact form handler</h4>
+      <p style="color:var(--text-dim); font-size:0.85rem;">
+        Simple client-side handler. Prevents submit default, shows <code>.form-status</code> with thank-you message, resets form. No server endpoint (<code>main.js:255-264</code>). Wire to real endpoint for production.
+      </p>
+    </div>
+
+    <div class="token-group">
+      <h4><code>[data-scan-id]</code> + <code>[data-verdict]</code> — Face scanner</h4>
+      <table class="ds-table">
+        <thead><tr><th>Attribute</th><th>Behavior</th></tr></thead>
+        <tbody>
+          <tr><td><code>data-scan-id</code></td><td class="val">TextContent overwritten with <code>faceData[idx].id</code> on thumb switch or auto-rotate</td></tr>
+          <tr><td><code>data-verdict</code></td><td class="val">Inner <code>.row b</code> and <code>.row span:last-child</code> updated with confidence, lipSync, noise. <code>.bar-fill</code> width animated.</td></tr>
+        </tbody>
+      </table>
+      <p style="color:var(--text-dim); font-size:0.85rem; margin-top:4px;">
+        faceData schema: <code>{ id: string, confidence: number, lipSync: string, noise: "normal" | "anomalous" }</code>. Thumbnails use <code>.face-thumb</code> class + <code>.active</code> state. Auto-rotate interval: 5s. Manual click pauses rotation (<code>main.js:82-147</code>).
+      </p>
+    </div>
+
+    <div class="token-group">
+      <h4>IntersectionObserver usage summary</h4>
+      <table class="ds-table">
+        <thead><tr><th>Feature</th><th>Threshold</th><th>rootMargin</th><th>Elements observed</th></tr></thead>
+        <tbody>
+          <tr><td>Stat counters</td><td><code>0.4</code></td><td>None</td><td><code>[data-count]</code></td></tr>
+          <tr><td>Scroll reveals</td><td><code>0.08</code></td><td><code>0px 0px -40px 0px</code></td><td>cards, pillars, steps, maturity rows, CTA banners, quiz, FAQ items</td></tr>
+          <tr><td>Fusion bars</td><td><code>0.3</code></td><td>None</td><td><code>[data-fusion-bar]</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- 12. ACCESSIBILITY -->
+  <!-- ============================================================== -->
+  <section id="accessibility" class="ds-section">
+
+    <div class="ds-label">Section 12</div>
+    <h2 class="ds-h2">Accessibility <code>a11y · WCAG · ARIA</code></h2>
+    <p class="ds-desc">The site targets WCAG 2.1 AA. Below are contrast ratios, ARIA patterns, and keyboard behavior every engineer must maintain.</p>
+
+    <div class="responsive-grid">
+      <div class="spec-card">
+        <h4>Color contrast ratios</h4>
+        <table class="ds-table">
+          <thead><tr><th>Pair</th><th>Ratio</th><th>WCAG</th></tr></thead>
+          <tbody>
+            <tr><td><code>--text</code> (#eaf0ff) on <code>--bg-0</code> (#05060d)</td><td class="val">~14.5:1</td><td>AAA</td></tr>
+            <tr><td><code>--text-dim</code> (#95a3c8) on <code>--bg-0</code></td><td class="val">~7.1:1</td><td>AA</td></tr>
+            <tr><td><code>--text-mute</code> (#6a7596) on <code>--bg-0</code></td><td class="val">~4.8:1</td><td>AA (large text only)</td></tr>
+            <tr><td><code>--cyan</code> (#4cd2ff) on <code>--bg-0</code></td><td class="val">~6.5:1</td><td>AA</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:0.78rem; color:var(--text-dim); margin-top:6px;">Never use <code>--text-faint</code> for body text — fails AA at all sizes. Placeholder text only.</p>
+      </div>
+      <div class="spec-card">
+        <h4>ARIA roles &amp; attributes</h4>
+        <ul class="bullets" style="font-size:0.82rem;">
+          <li><code>.nist-chip</code> → <code>role="button"</code>, <code>tabindex="0"</code>, <code>aria-expanded</code></li>
+          <li><code>.nist-popover</code> → <code>role="dialog"</code>, <code>aria-hidden</code></li>
+          <li><code>.nav-toggle</code> → <code>aria-label="Toggle menu"</code></li>
+          <li>External links → <code>target="_blank" rel="noopener noreferrer"</code></li>
+          <li>Form inputs → <code>label</code> via <code>for</code>/<code>id</code> or wrapping</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="token-group">
+      <h4>Keyboard navigation</h4>
+      <table class="ds-table">
+        <thead><tr><th>Component</th><th>Key</th><th>Behavior</th></tr></thead>
+        <tbody>
+          <tr><td>.nist-chip</td><td>Enter / Space / Escape</td><td>Enter/Space opens popover. Escape closes. Global Esc listener closes any open popover (<code>main.js:359-368</code>).</td></tr>
+          <tr><td>.nav-toggle</td><td>Enter / Space</td><td>Toggles mobile menu open/close (<code>main.js:24-32</code>).</td></tr>
+          <tr><td>Nav links (mobile)</td><td>Enter</td><td>Navigate. Closes mobile menu (<code>main.js:29-31</code>).</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="token-group">
+      <h4>Reduced motion</h4>
+      <p class="ds-desc">
+        A global <code>@media (prefers-reduced-motion: reduce)</code> at <code>style.css:1123</code> kills all animations and transitions with <code>!important</code>. Covers: scan line, pulse dots, page fade, card hovers, scroll reveals, fusion bar reveals, face crossfade, parallax. Body animation is disabled. <strong>Any new animation must be covered by this query.</strong>
+      </p>
+    </div>
+
+    <div class="token-group">
+      <h4>Known gaps (future work)</h4>
+      <ul class="bullets">
+        <li><strong>Skip-to-content link</strong> — currently absent from all pages. Should be first focusable element.</li>
+        <li><strong>Focus-visible</strong> — only on <code>.nist-chip</code>. Should extend to buttons, quiz options, nav links.</li>
+        <li><strong>Landmarks</strong> — semantic <code>&lt;nav&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code> are correct. Maintain this structure on new pages.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- 13. PAGE BOILERPLATE -->
+  <!-- ============================================================== -->
+  <section id="boilerplate" class="ds-section">
+
+    <div class="ds-label">Section 13</div>
+    <h2 class="ds-h2">Page Boilerplate <code>copy-paste template</code></h2>
+    <p class="ds-desc">Use this as the starting template for every new page. It includes the 7-layer architecture, correct CSS/JS loading, nav with active state, and footer. Copy this code, save as a new <code>.html</code>, and replace the hero/section blocks.</p>
+
+    <div style="background:#05060d; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; margin-top:16px;">
+      <div style="padding:12px 18px; background:rgba(255,255,255,0.02); border-bottom:1px solid var(--border); font-family:var(--font-mono); font-size:0.72rem; color:var(--text-mute); display:flex; justify-content:space-between;">
+        <span>📄 deepfake-defense/new-page.html</span>
+        <span>HTML boilerplate</span>
+      </div>
+      <pre style="padding:18px; margin:0; overflow-x:auto; font-family:var(--font-mono); font-size:0.75rem; line-height:1.5; color:var(--text-dim);"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+  &lt;title&gt;Page Title — Deepfake Defense&lt;/title&gt;
+  &lt;meta name="description" content="..." /&gt;
+  &lt;link rel="preconnect" href="https://fonts.googleapis.com" /&gt;
+  &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /&gt;
+  &lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet" /&gt;
+  &lt;link rel="stylesheet" href="css/style.css" /&gt;
+  &lt;link rel="icon" type="image/png" href="assets/logo.png" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Layer 1: Scroll progress --&gt;
+  &lt;div class="scroll-progress"&gt;&lt;/div&gt;
+
+  &lt;!-- Layer 2: Nav --&gt;
+  &lt;nav class="nav"&gt;
+    &lt;div class="container nav-inner"&gt;
+      &lt;a href="index.html" class="brand"&gt;
+        &lt;img src="assets/logo.png" alt="" class="brand-logo" /&gt;
+        &lt;span class="brand-text"&gt;Deepfake Defense&lt;small&gt;2026 INITIATIVE&lt;/small&gt;&lt;/span&gt;
+      &lt;/a&gt;
+      &lt;ul class="nav-links"&gt;
+        &lt;li&gt;&lt;a href="new-page.html" class="active"&gt;New Page&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;button class="nav-toggle" aria-label="Toggle menu"&gt;
+        &lt;svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;
+          &lt;line x1="3" y1="6" x2="21" y2="6"/&gt;&lt;line x1="3" y1="12" x2="21" y2="12"/&gt;&lt;line x1="3" y1="18" x2="21" y2="18"/&gt;
+        &lt;/svg&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+
+  &lt;!-- Layer 3: Hero --&gt;
+  &lt;header class="hero" style="padding: 80px 0 40px;"&gt;
+    &lt;div class="container" style="text-align:center; max-width:820px;"&gt;
+      &lt;span class="eyebrow"&gt;MODULE XX · TITLE&lt;/span&gt;
+      &lt;h1&gt;Page &lt;span class="grad"&gt;headline&lt;/span&gt;&lt;/h1&gt;
+      &lt;p class="lede"&gt;Description&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;!-- Layer 4: Sections --&gt;
+  &lt;section class="section"&gt;
+    &lt;div class="container"&gt;
+      &lt;div class="section-header"&gt;
+        &lt;span class="eyebrow"&gt;SECTION&lt;/span&gt;
+        &lt;h2&gt;Title&lt;/h2&gt;
+        &lt;p&gt;Description.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;!-- grid-2, grid-3, split, cards, etc --&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Layer 5: CTA before footer --&gt;
+  &lt;section class="section"&gt;
+    &lt;div class="container"&gt;
+      &lt;div class="cta-banner"&gt;
+        &lt;div&gt;
+          &lt;h2&gt;Call to action&lt;/h2&gt;
+          &lt;p&gt;Next step.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="cta-actions"&gt;
+          &lt;a href="page.html" class="btn btn--primary"&gt;Action &lt;span class="arrow"&gt;→&lt;/span&gt;&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Layer 6: Footer --&gt;
+  &lt;footer class="footer"&gt;
+    &lt;div class="container"&gt;
+      &lt;div class="footer-grid"&gt;
+        &lt;div&gt;
+          &lt;a href="index.html" class="brand"&gt;
+            &lt;img src="assets/logo.png" alt="" class="brand-logo" /&gt;
+            &lt;span class="brand-text"&gt;Deepfake Defense&lt;small&gt;2026 INITIATIVE&lt;/small&gt;&lt;/span&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;h4&gt;Reference&lt;/h4&gt;
+          &lt;ul&gt;&lt;li&gt;&lt;a href="index.html"&gt;Overview&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="footer-bottom"&gt;
+        &lt;span&gt;Reference site · inspired by Gartner Top 8 Cybersecurity Projects for 2026&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+
+  &lt;!-- Layer 7: Script --&gt;
+  &lt;script src="js/main.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+    <div class="usage-note" style="margin-top:12px;">
+      <strong>Process:</strong> Copy the code above → save as <code>new-page.html</code> → update the <code>active</code> class on the correct nav link → replace hero/section content → test at 900px and 640px breakpoints.
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- 14. BUILD & DEPLOY -->
+  <!-- ============================================================== -->
+  <section id="deploy" class="ds-section">
+
+    <div class="ds-label">Section 14</div>
+    <h2 class="ds-h2">Build &amp; Deploy</h2>
+    <p class="ds-desc">The static site requires zero build tooling. The Next.js app uses standard Next.js commands.</p>
+
+    <div class="responsive-grid">
+      <div class="spec-card">
+        <h4>Static site — local dev</h4>
+        <div style="background:rgba(255,255,255,0.03); padding:10px 14px; border-radius:8px; font-family:var(--font-mono); font-size:0.78rem;">
+          npx serve deepfake-defense<br />
+          # or: python3 -m http.server 8080 -d deepfake-defense
+        </div>
+        <p style="font-size:0.82rem; color:var(--text-dim); margin-top:8px;">Opening <code>index.html</code> directly in a browser works but use a local HTTP server for correct relative paths.</p>
+      </div>
+      <div class="spec-card">
+        <h4>Static site — deploy</h4>
+        <ul class="bullets" style="font-size:0.82rem;">
+          <li><strong>Vercel / Netlify:</strong> Point root to <code>deepfake-defense/</code>. No build command. Auto-detects static site.</li>
+          <li><strong>GitHub Pages:</strong> Push folder to <code>gh-pages</code> branch or set as <code>docs/</code>.</li>
+          <li><strong>S3 / Cloudflare / Nginx:</strong> Copy folder contents to web root.</li>
+        </ul>
+        <p style="font-size:0.8rem; color:var(--text-dim);">No <code>package.json</code>. To minify, run a one-off <code>npx html-minifier</code> before deploy.</p>
+      </div>
+      <div class="spec-card" style="grid-column:1/-1;">
+        <h4>Next.js app — commands</h4>
+        <table class="ds-table">
+          <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>npm run dev</code></td><td class="val">Dev server at <code>localhost:3000</code></td></tr>
+            <tr><td><code>npm run build</code></td><td class="val">Production build → <code>.next/</code></td></tr>
+            <tr><td><code>npm run start</code></td><td class="val">Production server</td></tr>
+            <tr><td><code>npm run lint</code></td><td class="val">ESLint across the project</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- 15. BROWSER SUPPORT -->
+  <!-- ============================================================== -->
+  <section id="browsers" class="ds-section">
+
+    <div class="ds-label">Section 15</div>
+    <h2 class="ds-h2">Browser Support</h2>
+    <p class="ds-desc">Targets modern browsers (Chrome 85+, Firefox 88+, Safari 14.1+, Edge 85+). No IE support.</p>
+
+    <table class="ds-table">
+      <thead><tr><th>Feature</th><th>Prefix?</th><th>Fallback</th><th>Acceptable degradation?</th></tr></thead>
+      <tbody>
+        <tr><td>CSS custom properties (<code>--token</code>)</td><td>None</td><td>No fallback — required</td><td>No — the entire design depends on this</td></tr>
+        <tr><td><code>backdrop-filter</code></td><td><code>-webkit-</code></td><td>Solid background</td><td>Yes — blur degrades to solid</td></tr>
+        <tr><td><code>background-clip: text</code></td><td><code>-webkit-</code></td><td>Flat white text</td><td>Yes — acceptable</td></tr>
+        <tr><td><code>mask-image</code></td><td><code>-webkit-</code></td><td>Full grid without mask</td><td>Yes — acceptable</td></tr>
+        <tr><td>IntersectionObserver</td><td>None</td><td>JS fallback (immediate)</td><td>Yes — counters/ reveals happen immediately</td></tr>
+        <tr><td><code>clamp()</code></td><td>None</td><td>Set fixed font-size fallback</td><td>Yes</td></tr>
+        <tr><td><code>scroll-behavior: smooth</code></td><td>None</td><td>Instant scroll</td><td>Yes</td></tr>
+        <tr><td><code>appearance: none</code> (select)</td><td><code>-webkit-</code>, <code>-moz-</code></td><td>Native OS dropdown</td><td>Yes</td></tr>
+        <tr><td><code>color-scheme: dark</code></td><td>None</td><td>White dropdown panel</td><td>Yes</td></tr>
+        <tr><td><code>prefers-reduced-motion</code></td><td>None</td><td>Animations play normally</td><td>Yes — acceptable for non-reduced users</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</div><!-- /.container -->
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" style="margin-top:0;">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="brand" style="margin-bottom:14px;">
+          <img src="assets/logo.png" alt="Deepfake Defense" class="brand-logo" />
+          <span class="brand-text">Deepfake Defense<small>2026 INITIATIVE</small></span>
+        </a>
+        <p style="margin-top:14px; font-size:0.9rem;">Design system reference for engineering teams building the deepfake defense program.</p>
+      </div>
+      <div>
+        <h4>Sections</h4>
+        <ul>
+          <li><a href="#tokens">Design Tokens</a></li>
+          <li><a href="#typography">Typography</a></li>
+          <li><a href="#spacing">Spacing &amp; Layout</a></li>
+          <li><a href="#color">Color</a></li>
+          <li><a href="#components">Components</a></li>
+          <li><a href="#state-matrix">State Matrix</a></li>
+          <li><a href="#patterns">Patterns</a></li>
+          <li><a href="#composition">Compositions</a></li>
+          <li><a href="#motion">Motion</a></li>
+          <li><a href="#responsive">Responsive</a></li>
+          <li><a href="#usage">Usage Guide</a></li>
+          <li><a href="#zindex">Z-Index</a></li>
+          <li><a href="#js-contracts">JS Contracts</a></li>
+          <li><a href="#accessibility">Accessibility</a></li>
+          <li><a href="#boilerplate">Boilerplate</a></li>
+          <li><a href="#deploy">Deploy</a></li>
+          <li><a href="#browsers">Browser Support</a></li>
+          <li><a href="#git-conventions">Git Diffs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reference Pages</h4>
+        <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="threat-landscape.html">Threat Landscape</a></li>
+          <li><a href="detection.html">Detection Stack</a></li>
+          <li><a href="program.html">Defense Program</a></li>
+          <li><a href="training.html">Workforce Training</a></li>
+          <li><a href="nist-controls.html">NIST &amp; CVE</a></li>
+          <li><a href="resources.html">Resources</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Standards</h4>
+        <ul>
+          <li><a href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final" target="_blank" rel="noopener">NIST SP 800-53 r5</a></li>
+          <li><a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2.pdf" target="_blank" rel="noopener">NIST AI 100-2</a></li>
+          <li><a href="https://c2pa.org/" target="_blank" rel="noopener">C2PA</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Design System v1.0 · Deepfake Defense 2026 Initiative</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
